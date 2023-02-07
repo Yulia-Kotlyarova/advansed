@@ -1,0 +1,12 @@
+.BaseButton {
+  cursor: pointer;
+  font-size: var(--font-size-m);
+}
+
+.outlined {
+  outline: none;
+  border: none;
+  background: var(--transparent);
+  color: inherit;
+  fill: var(--primary-font-color-inverted);
+}
