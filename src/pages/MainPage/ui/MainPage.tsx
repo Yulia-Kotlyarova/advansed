@@ -1,10 +1,11 @@
 import React from 'react';
+import {useTranslation} from 'react-i18next';
 
 const MainPage = () => {
+	const { t } = useTranslation('main');
 	return (
 		<div>
-			jslfjseifjsefisjef
-			<h1> jseofijeofis</h1>
+			<h1> {t('main')}</h1>
 			<h2> iejsofjsoefijs</h2>
 		</div>
 	);
