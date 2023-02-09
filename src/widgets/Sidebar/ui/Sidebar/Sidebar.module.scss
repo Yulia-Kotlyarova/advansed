@@ -1,22 +1,22 @@
 .Sidebar {
-  position: relative;
-  padding: 20px 5px;
-  height: calc(100vh - var(--navbar-height));
-  width: var(--sidebar-width-closed);
-  background: var(--bg-color-inverted);
-  transition: width 0.3s;
+    position: relative;
+    padding: 20px 5px;
+    height: calc(100vh - var(--navbar-height));
+    width: var(--sidebar-width-closed);
+    background: var(--bg-color-inverted);
+    transition: width 0.3s;
 }
 
 .isOpen {
-  width: var(--sidebar-width);
+    width: var(--sidebar-width);
 }
 
 .switchers {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: calc(100% - 10px);
-  bottom: 20px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: calc(100% - 10px);
+    bottom: 20px;
 }

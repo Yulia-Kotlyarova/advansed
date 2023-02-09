@@ -3,7 +3,7 @@ import React, { Suspense } from 'react';
 import { routeConfig } from 'app/providers/router/routeConfig/routeConfig';
 
 const AppRouter = () => (
-    <Suspense fallback={<div>...loading</div>}>
+    <Suspense fallback={<div>...</div>}>
         <Routes>
             {Object.values(routeConfig).map(({ path, element }) => (
                 <Route

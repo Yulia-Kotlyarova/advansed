@@ -1,8 +1,9 @@
 .BaseLink {
-  &.primary {
-    color: var(--primary-font-color);
-  }
-  &.inverted {
-    color: var(--primary-font-color-inverted);
-  }
+    &.primary {
+        color: var(--primary-font-color);
+    }
+
+    &.inverted {
+        color: var(--primary-font-color-inverted);
+    }
 }
