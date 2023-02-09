@@ -1,4 +1,3 @@
-
 type Mods = Record<string, boolean | string>
 
 export function classNames(cls?: string, mod?: Mods, additional?: string[]): string {
@@ -7,10 +6,7 @@ export function classNames(cls?: string, mod?: Mods, additional?: string[]): str
         ...additional.filter(Boolean),
         ...Object.entries(mod)
             .filter(([className, value]) => Boolean(value))
-            .map(([className]) => className)
+            .map(([className]) => className),
     ]
         .join(' ');
 }
-
-
-
