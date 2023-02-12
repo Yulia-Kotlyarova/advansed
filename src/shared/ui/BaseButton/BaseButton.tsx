@@ -5,7 +5,7 @@ import classes from './BaseButton.module.scss';
 export type ThemeBaseButton = 'outlined' | 'primary' | 'secondary';
 
 interface BaseButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
-  className: string;
+  className?: string;
   theme?: ThemeBaseButton
 }
 
