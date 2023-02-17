@@ -3,13 +3,13 @@ import { BaseButton } from 'shared/ui/BaseButton/BaseButton';
 
 describe('button', () => {
     test('test', () => {
-        render(<BaseButton className="test"> + </BaseButton>);
-        expect(screen.getByText('+')).toBeInTheDocument();
+        render(<BaseButton className="test"> Test </BaseButton>);
+        expect(screen.getByText('Test')).toBeInTheDocument();
     });
 
     test('test2', () => {
-        render(<BaseButton className="test"> + </BaseButton>);
-        expect(screen.getByText('+')).toHaveClass('test');
+        render(<BaseButton className="test"> Test </BaseButton>);
+        expect(screen.getByText('Test')).toHaveClass('test');
         screen.debug();
     });
 });

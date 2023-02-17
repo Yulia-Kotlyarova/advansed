@@ -3,10 +3,28 @@
     font-size: var(--font-size-m);
 }
 
+.primary {
+    outline: none;
+    border: none;
+    padding: 5px 7px;
+    background: var(--primary-color);
+    color: var(--primary-font-color-inverted);
+    fill: var(--primary-font-color-inverted);
+}
+
+.secondary {
+    outline: none;
+    border: none;
+    padding: 5px 7px;
+    background: var(--secondary-color);
+    color: var(--primary-font-color-inverted);
+    fill: var(--primary-font-color-inverted);
+}
+
 .outlined {
     outline: none;
     border: none;
     background: none;
-    color: inherit;
+    color: var(--primary-font-color);
     fill: var(--primary-font-color-inverted);
 }
