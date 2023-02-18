@@ -33,3 +33,74 @@ Outlined.args = {
     children: 'Text',
 };
 Outlined.decorators = [ThemeDecorator(Theme.LIGHT)];
+
+export const SquareS = Template.bind({});
+SquareS.args = {
+    theme: 'primary',
+    children: '+',
+    square: true,
+    size: 's',
+};
+
+export const SquareM = Template.bind({});
+SquareM.args = {
+    theme: 'primary',
+    children: '+',
+    square: true,
+    size: 'm',
+};
+
+export const SquareL = Template.bind({});
+SquareL.args = {
+    theme: 'primary',
+    children: '+',
+    square: true,
+    size: 'l',
+};
+
+export const S = Template.bind({});
+S.args = {
+    theme: 'primary',
+    children: 'Text',
+    size: 's',
+};
+
+export const M = Template.bind({});
+M.args = {
+    theme: 'primary',
+    children: 'Text',
+    size: 'm',
+};
+
+export const L = Template.bind({});
+L.args = {
+    theme: 'primary',
+    children: 'Text',
+    size: 'l',
+};
+
+export const BackgroundDark = Template.bind({});
+BackgroundDark.args = {
+    theme: 'background',
+    children: 'Text',
+};
+
+export const BackgroundInvertedDark = Template.bind({});
+BackgroundInvertedDark.args = {
+    theme: 'background-inverted',
+    children: 'Text',
+};
+
+export const BackgroundLight = Template.bind({});
+BackgroundLight.args = {
+    theme: 'background',
+    children: 'Text',
+};
+BackgroundLight.decorators = [ThemeDecorator(Theme.LIGHT)];
+
+export const BackgroundInvertedLight = Template.bind({});
+BackgroundInvertedLight.args = {
+    theme: 'background-inverted',
+    children: 'Text',
+};
+BackgroundInvertedLight.decorators = [ThemeDecorator(Theme.LIGHT)];

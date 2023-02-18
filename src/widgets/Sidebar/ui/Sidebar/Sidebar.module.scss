@@ -11,6 +11,17 @@
     width: var(--sidebar-width);
 }
 
+.links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    a {
+        padding: 5px 0;
+    }
+}
+
 .switchers {
     position: absolute;
     display: flex;
@@ -19,4 +30,20 @@
     align-items: center;
     width: calc(100% - 10px);
     bottom: 20px;
+}
+
+.openBtn {
+    width: 20px;
+    height: 50px;
+    position: absolute;
+    right: -32px;
+    bottom: 0;
+}
+
+.linkIcon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    fill: var(--secondary-color);
+    vertical-align: baseline;
 }
