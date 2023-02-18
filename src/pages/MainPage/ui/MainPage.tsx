@@ -9,7 +9,10 @@ const MainPage = () => {
                 {' '}
                 {t('main')}
             </h1>
-            <h2> iejsofjsoefijs</h2>
+            <h2>
+                {' '}
+                {t('main')}
+            </h2>
         </div>
     );
 };
