@@ -11,11 +11,12 @@ interface ModalProps {
     className?: string;
     children: ReactNode;
     isOpen?: boolean;
+    lazy?: boolean;
     onClose?: () => void;
 }
 
 export const Modal = ({
-    className, children, isOpen = false, onClose,
+    className, children, isOpen = false, onClose, lazy,
 }: ModalProps) => {
     const { t } = useTranslation('auto');
     const { theme } = useTheme();
@@ -26,6 +27,13 @@ export const Modal = ({
         [classes.isOpen]: isOpen,
         [classes.isClosing]: isClosing,
     };
+
+    const [isMounted, setIsMounted] = useState(false);
+    useEffect(() => {
+        if (isOpen) {
+            setIsMounted(true);
+        }
+    }, [isOpen]);
 
     const onCloseHandler = () => {
         if (onClose) {
@@ -55,6 +63,11 @@ export const Modal = ({
     const onContentClick = (e: React.MouseEvent) => {
         e.stopPropagation();
     };
+
+    if (lazy && !isMounted) {
+        return null;
+    }
+
     return (
         <Portal>
             <div className={classNames(classes.Modal, modes, [className, theme])}>
