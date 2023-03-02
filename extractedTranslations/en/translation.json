@@ -2,9 +2,16 @@
   "Input Name": "Input Name",
   "Input Password": "Input Password",
   "LogIn": "LogIn",
+  "LogOut": "LogOut",
   "Page 404": "",
   "about": "",
+  "error": "",
   "home": "",
   "page error": "",
-  "restart": ""
+  "restart": "",
+  "Введите username": "",
+  "Введите пароль": "",
+  "Войти": "",
+  "Вы ввели неверный логин или пароль": "",
+  "Форма авторизации": ""
 }

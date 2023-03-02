@@ -1,4 +1,5 @@
 import { UserSchema } from 'entities/User/model';
+import { LoginSchema } from 'features/AuthByUserName';
 
 export interface Counter {
     value: number;
@@ -6,5 +7,6 @@ export interface Counter {
 
 export interface StateSchema {
     counter: Counter,
-    user: UserSchema
+    user: UserSchema,
+    loginForm: LoginSchema;
 }

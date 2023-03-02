@@ -104,3 +104,19 @@ BackgroundInvertedLight.args = {
     children: 'Text',
 };
 BackgroundInvertedLight.decorators = [ThemeDecorator(Theme.LIGHT)];
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+    theme: 'primary',
+    disabled: true,
+    children: 'Text',
+};
+
+export const DisabledLight = Template.bind({});
+DisabledLight.args = {
+    theme: 'primary',
+    disabled: true,
+    children: 'Text',
+};
+
+DisabledLight.decorators = [ThemeDecorator(Theme.LIGHT)];
