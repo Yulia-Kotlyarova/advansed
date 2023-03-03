@@ -5,7 +5,7 @@ import i18n from 'shared/config/i18n/i18n';
 
 export const TranslationDecorator = (StoryComponent: Story) => (
     <I18nextProvider i18n={i18n}>
-        <Suspense fallback="">
+        <Suspense fallback="...">
             <StoryComponent />
         </Suspense>
     </I18nextProvider>
