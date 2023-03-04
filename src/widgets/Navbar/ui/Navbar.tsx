@@ -38,7 +38,7 @@ export const Navbar = ({ className }: NavbarProps) => {
             <BaseButton onClick={() => setIsAuthModal(true)}>
                 {t('LogIn')}
             </BaseButton>
-            <LoginModal isOpen={isAuthModal} lazy onClose={() => setIsAuthModal(false)} />
+            {isAuthModal && <LoginModal isOpen={isAuthModal} lazy onClose={() => setIsAuthModal(false)} />}
         </div>
     );
 };
