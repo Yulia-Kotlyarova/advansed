@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Link, LinkProps } from 'react-router-dom';
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import classes from './BaseLink.module.scss';
 
 export enum BaseLinkTheme {
@@ -14,7 +14,7 @@ interface BaseLinkProps extends LinkProps{
 
 }
 
-export const BaseLink: FC<BaseLinkProps> = (props) => {
+export const BaseLink: FC<BaseLinkProps> = memo((props: BaseLinkProps) => {
     const {
         className,
         children,
@@ -31,4 +31,4 @@ export const BaseLink: FC<BaseLinkProps> = (props) => {
             {children}
         </Link>
     );
-};
+});

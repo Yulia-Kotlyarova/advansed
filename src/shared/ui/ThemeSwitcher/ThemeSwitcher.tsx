@@ -1,6 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Theme, useTheme } from 'app/providers/ThemeProvider';
 import { BaseButton } from 'shared/ui/BaseButton/BaseButton';
+import { memo } from 'react';
 import classes from './ThemeSwitcher.module.scss';
 import SunIcon from '../../assets/icons/sun-regular.svg';
 import MoonIcon from '../../assets/icons/moon-regular.svg';
@@ -9,7 +10,7 @@ interface ThemeSwitcherProps {
   className: string;
 }
 
-export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
+export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
     const { theme, toggleTheme } = useTheme();
 
     return (
@@ -25,4 +26,4 @@ export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
             }
         </BaseButton>
     );
-};
+});

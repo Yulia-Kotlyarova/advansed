@@ -1,0 +1,20 @@
+.link {
+    display: none;
+}
+
+.isOpen {
+    width: var(--sidebar-width);
+
+    .link {
+        color: var(--primary-font-color-inverted);
+        display: inline;
+    }
+}
+
+.linkIcon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    fill: var(--secondary-color);
+    vertical-align: baseline;
+}

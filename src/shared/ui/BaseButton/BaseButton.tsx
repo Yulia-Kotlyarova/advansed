@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { ButtonHTMLAttributes, FC } from 'react';
+import { ButtonHTMLAttributes, FC, memo } from 'react';
 import classes from './BaseButton.module.scss';
 
 export type ThemeBaseButton = 'outlined' | 'primary' | 'secondary' | 'background' | 'background-inverted';
@@ -13,7 +13,7 @@ interface BaseButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
   disabled?: boolean;
 }
 
-export const BaseButton: FC<BaseButtonProps> = (props: BaseButtonProps) => {
+export const BaseButton: FC<BaseButtonProps> = memo((props: BaseButtonProps) => {
     const {
         className, theme = 'primary', children, square = false, size = 'm', disabled = false, ...otherProps
     } = props;
@@ -33,4 +33,4 @@ export const BaseButton: FC<BaseButtonProps> = (props: BaseButtonProps) => {
             {children}
         </button>
     );
-};
+});

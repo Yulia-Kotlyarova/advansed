@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import classes from './BaseText.module.scss';
 
@@ -10,7 +11,7 @@ interface BaseTextProps {
     theme?: TextTheme;
 }
 
-export const BaseText = ({
+export const BaseText = memo(({
     className, title, text, theme = 'default',
 }: BaseTextProps) => (
     <div className={classNames(classes.BaseText, { [classes[theme]]: true }, [className])}>
@@ -21,4 +22,4 @@ export const BaseText = ({
             {text}
         </p>
     </div>
-);
+));
