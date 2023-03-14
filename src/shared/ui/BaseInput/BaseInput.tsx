@@ -6,7 +6,7 @@ type HTNLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onC
 interface BaseInputProps extends HTNLInputProps{
     className?: string;
     value?: string;
-    onChange: (value?: string) => void;
+    onChange: (value: string) => void;
 }
 
 export const BaseInput = memo((props: BaseInputProps) => {

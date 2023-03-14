@@ -18,7 +18,7 @@ export const fetchLogin = createAsyncThunk<User, LoginProps, ThunkConfig<string>
             }
             localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(response.data));
             thunkAPI.dispatch(userActions.setAuthData(response.data));
-            thunkAPI.extra.navigation('/about');
+            thunkAPI?.extra?.navigation?.('/about');
             return response.data;
         } catch (e) {
             return thunkAPI.rejectWithValue('error');

@@ -1,6 +1,7 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import React, {
+    MutableRefObject,
     ReactNode, useCallback, useEffect, useRef, useState,
 } from 'react';
 import { Portal } from 'shared/ui/Portal/Portal';
@@ -21,9 +22,9 @@ export const Modal = ({
     const { t } = useTranslation('auto');
     const { theme } = useTheme();
     const [isClosing, setIsClosing] = useState(false);
-    const timeRef = useRef<ReturnType<typeof setTimeout>>();
+    const timeRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
 
-    const modes: Record<string, boolean> = {
+    const modes: Mods = {
         [classes.isOpen]: isOpen,
         [classes.isClosing]: isClosing,
     };

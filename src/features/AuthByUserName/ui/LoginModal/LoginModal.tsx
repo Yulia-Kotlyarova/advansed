@@ -5,7 +5,7 @@ import { Loader } from 'shared/ui/Loader/Loader';
 
 interface LoginModalProps {
     isOpen: boolean,
-    onClose?: () => void;
+    onClose: () => void;
     lazy?: boolean;
 }
 

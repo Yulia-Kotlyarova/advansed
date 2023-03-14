@@ -44,6 +44,7 @@ module.exports = {
         'jsx-a11y/click-events-have-key-events': 'off',
         'no-param-reassign': 'off',
         'jsx-a11y/no-autofocus': 'off',
+        'no-undef': 'off',
     },
     globals: {
         __IS_DEV__: true,
