@@ -5,6 +5,9 @@
   "LogOut": "LogOut",
   "Page 404": "Page 404",
   "about": "About",
+  "avatar": "",
+  "cancel": "",
+  "chancel": "",
   "decrement": "",
   "edit": "",
   "error": "Something goes wrong...",
@@ -15,5 +18,6 @@
   "profile": "Profile",
   "profile page": "",
   "restart": "Upload the page",
+  "save": "",
   "test": "test text"
 }

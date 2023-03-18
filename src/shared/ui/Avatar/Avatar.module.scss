@@ -1,0 +1,27 @@
+.Avatar {
+    position: relative;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    margin: 20px 0;
+}
+
+.sm {
+    width: 36px;
+    height: 36px;
+}
+
+.md {
+    width: 100px;
+    height: 100px;
+}
+
+.lg {
+    width: 150px;
+    height: 150px;
+}
+
+.img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

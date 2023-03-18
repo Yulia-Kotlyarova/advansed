@@ -14,7 +14,7 @@ const App = () => {
     const { theme } = useTheme();
 
     useEffect(() => {
-        dispatch(userActions.initAuthData);
+        dispatch(userActions.initAuthData());
     }, []);
 
     return (

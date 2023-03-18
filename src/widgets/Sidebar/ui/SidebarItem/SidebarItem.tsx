@@ -8,9 +8,10 @@ import { SidebarItemType } from '../../model/items';
 interface SidebarItemProps {
     item: SidebarItemType;
     isOpen: boolean;
+    authOnly?: boolean;
 }
 
-export const SidebarItem = memo(({ item, isOpen }: SidebarItemProps) => {
+export const SidebarItem = memo(({ item, isOpen, authOnly }: SidebarItemProps) => {
     const { t } = useTranslation('translation');
 
     return (

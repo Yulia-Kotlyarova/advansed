@@ -2,7 +2,12 @@ import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { ButtonHTMLAttributes, FC, memo } from 'react';
 import classes from './BaseButton.module.scss';
 
-export type ThemeBaseButton = 'outlined' | 'primary' | 'secondary' | 'background' | 'background-inverted';
+export type ThemeBaseButton = 'outlined' |
+  'primary' |
+  'secondary' |
+  'background' |
+  'background-inverted' |
+  'outline-red';
 export type BaseButtonSize = 's' | 'm' | 'l';
 
 interface BaseButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{

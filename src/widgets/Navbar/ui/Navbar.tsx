@@ -17,6 +17,7 @@ export const Navbar = ({ className }: NavbarProps) => {
     const dispatch = useDispatch();
     const authData = useSelector(getUserAuthData);
     const [isAuthModal, setIsAuthModal] = useState(false);
+    console.log('authData', authData);
 
     const onLogOut = () => {
         dispatch(userActions.toLogOut());

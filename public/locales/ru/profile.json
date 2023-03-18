@@ -1,5 +1,8 @@
 {
   "profile page": "Профиль",
   "profile": "Профиль",
-  "edit": "edit"
+  "edit": "Редактировать",
+  "save": "Сохранить",
+  "cancel": "Отменить",
+  "avatar": "avatar"
 }
