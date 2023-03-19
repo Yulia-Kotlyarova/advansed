@@ -27,10 +27,10 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
 
     const onChangeUserName = useCallback((value: string) => {
         dispatch(loginActions.setUsername(value));
-    }, []);
+    }, [dispatch]);
     const onChangePassword = useCallback((value: string) => {
         dispatch(loginActions.setPassword(value));
-    }, []);
+    }, [dispatch]);
 
     const onLoginClick = useCallback(async () => {
         const result = await dispatch(fetchLogin(
@@ -51,14 +51,14 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
                 <BaseInput
                     className={classes.input}
                     placeholder={t('Input Name')}
-                    value={loginState?.username}
+                    value={loginState?.username ?? ''}
                     onChange={onChangeUserName}
                 />
                 <BaseInput
                     className={classes.input}
                     type="password"
                     placeholder={t('Input Password')}
-                    value={loginState?.password}
+                    value={loginState?.password ?? ''}
                     onChange={onChangePassword}
                 />
                 <BaseButton

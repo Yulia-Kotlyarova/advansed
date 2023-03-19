@@ -4,5 +4,13 @@
   "edit": "edit",
   "profile": "",
   "profile page": "",
-  "save": "save"
+  "save": "save",
+  "icorrect user data": "icorrect user data",
+  "icorrect age": "icorrect age",
+  "icorrect country": "icorrect country",
+  "server error": "server error",
+  "no data": "no data",
+  "incorrect user data": "incorrect user data",
+  "incorrect age": "incorrect age",
+  "incorrect country": "incorrect country"
 }

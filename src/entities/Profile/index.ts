@@ -1,4 +1,6 @@
-import { ProfileCard } from './ui/ProfileCard/ProfileCard';
+export { ProfileCard } from './ui/ProfileCard/ProfileCard';
+
+export { getProfileValidateError } from 'entities/Profile/model/selectors/getProfileValidateError/getProfileValidateError';
 
 export { updateProfileData } from './model/services/updateProfileData/updateProfileData';
 

@@ -11,6 +11,7 @@ interface LoginProps {
 export const fetchLogin = createAsyncThunk<User, LoginProps, ThunkConfig<string>>(
     'users/fetchByIdStatus',
     async ({ username, password }: LoginProps, thunkAPI) => {
+        console.log('username, password ', username, password);
         try {
             const response = await thunkAPI.extra.api.post('/login', { username, password });
             if (!response.data) {

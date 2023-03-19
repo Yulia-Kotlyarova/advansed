@@ -3,9 +3,10 @@ import React, { useMemo, useState } from 'react';
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher/ThemeSwitcher';
 import { LangSwitcher } from 'widgets/LangSwitcher';
 import { BaseButton } from 'shared/ui/BaseButton/BaseButton';
-import { useTranslation } from 'react-i18next';
 import { SidebarItemsList } from 'widgets/Sidebar/model/items';
 import { SidebarItem } from 'widgets/Sidebar/ui/SidebarItem/SidebarItem';
+import { useSelector } from 'react-redux';
+import { getUserAuthData } from 'entities/User/model';
 import classes from './Sidebar.module.scss';
 
 interface SidebarProps {
@@ -13,17 +14,31 @@ interface SidebarProps {
 }
 
 export const Sidebar = ({ className }: SidebarProps) => {
-    const { t } = useTranslation('translation');
+    const isAuth = useSelector(getUserAuthData);
     const [isOpen, setIsOpen] = useState(false);
 
-    const itemsList = useMemo(() => SidebarItemsList.map((item) => (
-        !item.authOnly && (
-            <SidebarItem
-                key={item.text}
-                item={item}
-                isOpen={isOpen}
-            />
-        ))), [isOpen]);
+    const itemsList = useMemo(() => SidebarItemsList.map((item) => {
+        if (!item.authOnly) {
+            return (
+                <SidebarItem
+                    key={item.text}
+                    item={item}
+                    isOpen={isOpen}
+                />
+            );
+        }
+        if (item.authOnly && isAuth?.username) {
+            return (
+                <SidebarItem
+                    key={item.text}
+                    item={item}
+                    isOpen={isOpen}
+                />
+            );
+        }
+
+        return null;
+    }), [isAuth?.username]);
 
     return (
         <div

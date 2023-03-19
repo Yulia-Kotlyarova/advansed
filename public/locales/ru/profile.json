@@ -4,5 +4,10 @@
   "edit": "Редактировать",
   "save": "Сохранить",
   "cancel": "Отменить",
-  "avatar": "avatar"
+  "avatar": "avatar",
+  "server error": "server error",
+  "no data": "no data",
+  "incorrect user data": "incorrect user data",
+  "incorrect age": "incorrect age",
+  "incorrect country": "incorrect country"
 }
