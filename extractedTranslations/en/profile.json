@@ -2,15 +2,15 @@
   "avatar": "avatar",
   "cancel": "cancel",
   "edit": "edit",
+  "icorrect age": "icorrect age",
+  "icorrect country": "icorrect country",
+  "icorrect user data": "icorrect user data",
+  "incorrect age": "incorrect age",
+  "incorrect country": "incorrect country",
+  "incorrect user data": "incorrect user data",
+  "no data": "no data",
   "profile": "",
   "profile page": "",
   "save": "save",
-  "icorrect user data": "icorrect user data",
-  "icorrect age": "icorrect age",
-  "icorrect country": "icorrect country",
-  "server error": "server error",
-  "no data": "no data",
-  "incorrect user data": "incorrect user data",
-  "incorrect age": "incorrect age",
-  "incorrect country": "incorrect country"
+  "server error": "server error"
 }

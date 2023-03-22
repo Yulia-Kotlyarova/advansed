@@ -1,5 +1,5 @@
 import { StateSchema } from 'app/providers/StoreProvider';
-import { getLoginState } from 'features/AuthByUserName/model/selectors/getLoginState/getLoginState';
+import { getLoginState } from './getLoginState';
 
 describe('getLoginState', () => {
     const state: DeepPartial<StateSchema> = {
