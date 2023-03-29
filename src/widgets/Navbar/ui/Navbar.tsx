@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import { LoginModal } from 'features/AuthByUserName';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserAuthData, userActions } from 'entities/User/model';
+import { StateSchema } from 'app/providers/StoreProvider';
 import classes from './Navbar.module.scss';
 
 interface NavbarProps {

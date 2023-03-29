@@ -6,12 +6,13 @@ import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
 import React, { Suspense, useEffect } from 'react';
 import { PageLoader } from 'widgets/PageLoader';
-import { useDispatch } from 'react-redux';
-import { userActions } from 'entities/User/model';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUserIninted, userActions } from 'entities/User/model';
 
 const App = () => {
     const dispatch = useDispatch();
     const { theme } = useTheme();
+    const inited = useSelector(getUserIninted);
 
     useEffect(() => {
         dispatch(userActions.initAuthData());
@@ -23,7 +24,7 @@ const App = () => {
                 <Navbar className="header-nav" />
                 <div className="content-page">
                     <Sidebar className="" />
-                    <AppRouter />
+                    {inited && <AppRouter />}
                 </div>
             </Suspense>
         </div>

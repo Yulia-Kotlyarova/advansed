@@ -1,37 +1,39 @@
 import { Route, Routes } from 'react-router-dom';
-import React, { Suspense, useMemo } from 'react';
-import { routeConfig } from 'app/providers/router/routeConfig/routeConfig';
+import React, { Suspense, useCallback, useMemo } from 'react';
+import { AppRoutesProps, routeConfig } from 'app/providers/router/routeConfig/routeConfig';
 import { PageLoader } from 'widgets/PageLoader';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from 'entities/User/model';
+import { RequireAuth } from 'app/providers/router/ui/RequireAuth';
 
 const AppRouter = () => {
     const isAuth = useSelector(getUserAuthData);
-    const routes = useMemo(() => (
-        Object.values(routeConfig).filter((route) => {
-            if (route.authOnly && !isAuth?.username) {
-                return false;
-            }
-            return true;
-        })), [isAuth?.username]);
+
+    const renderWithWrapper = useCallback((route: AppRoutesProps) => {
+        const element = (
+            <Suspense fallback={<PageLoader className="" />}>
+                <div className="page-wrapper" />
+            </Suspense>
+        );
+        return (
+            <Route
+                key={route.path}
+                path={route.path}
+                element={
+                    route.authOnly
+                        ? (
+                            <RequireAuth>
+                                {element}
+                            </RequireAuth>
+                        ) : element
+                }
+            />
+        );
+    }, []);
+
     return (
         <Routes>
-            {routes.map(({ path, element }) => (
-                <Route
-                    key={path}
-                    path={path}
-                    element={(
-                        <Suspense fallback={<PageLoader className="" />}>
-                            <div className="page-wrapper">
-                                {' '}
-                                {element}
-                                {' '}
-                            </div>
-                        </Suspense>
-
-                    )}
-                />
-            ))}
+            {Object.values(routeConfig).map(renderWithWrapper)}
         </Routes>
     );
 };
