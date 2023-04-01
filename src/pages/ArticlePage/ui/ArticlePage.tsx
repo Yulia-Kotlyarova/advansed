@@ -4,6 +4,7 @@ import { memo } from 'react';
 import { ArticleDetails } from 'entities/Article';
 import { useParams } from 'react-router-dom';
 import { BaseText } from 'shared/ui/BaseText/BaseText';
+import { CommentList } from 'entities/Comment';
 import classes from './ArticlePage.module.scss';
 
 interface ArticlePageProps {
@@ -18,7 +19,11 @@ const ArticlePage = (props: ArticlePageProps) => {
     }
 
     return (
-        <ArticleDetails id={id} />
+        <>
+            <ArticleDetails id={id} />
+            <BaseText text={t('comments')} size="m" />
+            <CommentList />
+        </>
     );
 };
 

@@ -1,0 +1,28 @@
+.CommentCard {
+    display: flex;
+    padding: 20px 10px;
+    border: 1px solid var(--secondary-color);
+    border-radius: var(--border-radius);
+    margin-bottom: 20px;
+}
+
+.avatar {
+    margin-right: 20px;
+}
+
+.mockAvatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 36px;
+    height: 36px;
+    background-color: var(--primary-font-color);
+    border-radius: var(--border-radius);
+    margin-right: 20px;
+}
+
+.name {
+    display: block;
+    color: var(--secondary-color);
+    font-size: 16px;
+}
