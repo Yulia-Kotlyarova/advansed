@@ -36,10 +36,10 @@ export const SidebarItemsList: SidebarItemType[] = [
         text: 'article',
         authOnly: true,
     },
-    {
-        path: RoutePath['article-list'],
-        Icon: ArticleListIcon,
-        text: 'article list',
-        authOnly: true,
-    },
+    // {
+    //     path: RoutePath.article_list,
+    //     Icon: ArticleListIcon,
+    //     text: 'article list',
+    //     authOnly: true,
+    // },
 ];

@@ -46,11 +46,14 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
         [ValidateProfileError.INCORRECT_NO_DATA]: t('no data'),
     };
 
+    console.log('ProfilePage');
+
     useEffect(() => {
         if (__PROJECT__ !== 'storybook') {
+            console.log('dispatch(fetchProfileData())');
             dispatch(fetchProfileData());
         }
-    }, []);
+    }, [dispatch]);
 
     const onChangeFirstName = useCallback((value?: string) => {
         dispatch(profileActions.updateProfile({ first: value ?? '' }));
