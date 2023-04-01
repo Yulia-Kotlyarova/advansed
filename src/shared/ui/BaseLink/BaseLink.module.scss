@@ -6,4 +6,8 @@
     &.inverted {
         color: var(--secondary-color);
     }
+
+    &:hover {
+        filter: brightness(1.2);
+    }
 }

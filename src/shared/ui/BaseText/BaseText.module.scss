@@ -4,12 +4,10 @@
 
 .title {
     color: var(--secondary-color);
-    font-size: var(--font-size-l);
 }
 
 .text {
     color: var(--primary-font-color);
-    font-size: var(--font-size-m);
 }
 
 .error {
@@ -29,4 +27,34 @@
 
 .right {
     text-align: right;
+}
+
+.s {
+    &.title {
+        font-size: var(--font-size-m);
+    }
+
+    &.text {
+        font-size: var(--font-size-s);
+    }
+}
+
+.m {
+    &.title {
+        font-size: var(--font-size-l);
+    }
+
+    &.text {
+        font-size: var(--font-size-m);
+    }
+}
+
+.l {
+    &.title {
+        font-size: var(--font-size-e-l);
+    }
+
+    &.text {
+        font-size: var(--font-size-l);
+    }
 }

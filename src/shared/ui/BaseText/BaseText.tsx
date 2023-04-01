@@ -6,12 +6,15 @@ type TextTheme = 'default' | 'error'
 
 type TextAlign = 'right' | 'left' | 'center'
 
+type TextSize = 's' | 'm' | 'l'
+
 interface BaseTextProps {
     className?: string;
     title?: string;
     text?: string;
     theme?: TextTheme;
     align?: TextAlign;
+    size?: TextSize;
 }
 
 export const BaseText = memo((props: BaseTextProps) => {
@@ -21,11 +24,13 @@ export const BaseText = memo((props: BaseTextProps) => {
         text,
         theme = 'default',
         align = 'left',
+        size = 's',
     } = props;
 
     const mods: Mods = {
         [classes[theme]]: true,
         [classes[align]]: true,
+        [classes[size]]: true,
     };
 
     return (

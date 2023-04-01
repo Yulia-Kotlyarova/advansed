@@ -3,6 +3,11 @@
     cursor: pointer;
     font-size: var(--font-size-m);
     border-radius: var(--border-radius);
+    transition: 0.3s;
+
+    &:hover {
+        filter: brightness(1.2);
+    }
 }
 
 .primary {

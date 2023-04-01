@@ -3,10 +3,12 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ArticleDetails } from './ArticleDetails';
+import { ArticleBlockType, ArticleType } from '../../types/article';
 
 export default {
-    title: 'shared/ArticleDetails',
+    title: 'entities/ArticleDetails',
     component: ArticleDetails,
     argTypes: {
         backgroundColor: { control: 'color' },
@@ -15,10 +17,80 @@ export default {
 
 const Template: ComponentStory<typeof ArticleDetails> = (args) => <ArticleDetails {...args} />;
 
+const data = {
+    id: '1',
+    title: 'React',
+    subtitle: 'smth about React',
+    img: 'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg',
+    tag: [ArticleType.REACT, ArticleType.IT],
+    views: 1033,
+    createdDate: '11.02.2023',
+    blocks: [
+        {
+            id: '1',
+            type: ArticleBlockType.TEXT,
+            title: 'Заголовок этого блока',
+            paragraphs: [
+                'Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, '
+                + 'world!», или другую подобную, средствами некоего языка.',
+                'JavaScript — это язык, программы на котором можно выполнять в разных средах. В нашем случае речь идёт '
+                + 'о браузерах и о серверной платформе Node.js. Если до сих пор вы не написали ни строчки кода на JS и читаете '
+                + 'этот текст в браузере, '
+                + 'на настольном компьютере, это значит, что вы буквально в считанных секундах от своей первой JavaScript-'
+                + 'программы.',
+            ],
+        },
+        {
+            id: '4',
+            type: ArticleBlockType.CODE,
+            code: `<!DOCTYPE html>
+<html>
+  <body>
+    <p id="hello"></p>
+
+    <script>
+      document.getElementById("hello").innerHTML = "Hello, world!";
+    </script>
+  </body>
+</html>;`,
+        },
+        {
+            id: '2',
+            type: ArticleBlockType.IMAGE,
+            src: 'https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png',
+            title: 'Рисунок 1 - скриншот сайта',
+        },
+    ],
+};
+
 export const Primary = Template.bind({});
 Primary.args = {};
+
+Primary.decorators = [StoreDecorator({
+    articleDetails: {
+        data,
+    },
+})];
 
 export const PrimaryLight = Template.bind({});
 PrimaryLight.args = {};
 
-PrimaryLight.decorators = [ThemeDecorator(Theme.LIGHT)];
+PrimaryLight.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({
+    articleDetails: {
+        data,
+    },
+})];
+
+export const Loading = Template.bind({});
+Loading.decorators = [StoreDecorator({
+    articleDetails: {
+        isLoading: true,
+    },
+})];
+
+export const Error = Template.bind({});
+Error.decorators = [StoreDecorator({
+    articleDetails: {
+        error: 'error',
+    },
+})];

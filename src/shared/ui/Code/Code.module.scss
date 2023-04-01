@@ -1,0 +1,18 @@
+pre.Code {
+    position: relative;
+    padding: 20px;
+    border: 1px solid var(--secondary-color);
+    overflow: auto;
+}
+
+.copyBtn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.copyIcon {
+    fill: var(--secondary-color);
+    width: 20px;
+    height: 20px;
+}

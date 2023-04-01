@@ -1,3 +1,19 @@
 .ArticleDetails {
-    border: 1px solid var(--secondary-color);
+    border-top: 1px solid var(--secondary-color);
+}
+
+.block {
+    padding: 20px 0;
+}
+
+.iconWrap {
+    display: flex;
+    align-items: center;
+}
+
+.topIcon {
+    fill: var(--primary-font-color);
+    width: 16px;
+    height: 16px;
+    margin-right: 12px;
 }
