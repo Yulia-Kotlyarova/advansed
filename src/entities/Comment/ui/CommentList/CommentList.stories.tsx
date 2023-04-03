@@ -47,3 +47,27 @@ PrimaryLight.args = {
 };
 
 PrimaryLight.decorators = [ThemeDecorator(Theme.LIGHT)];
+
+export const isLoading = Template.bind({});
+isLoading.args = {
+    isLoading: true,
+};
+
+export const isLoadingLight = Template.bind({});
+isLoadingLight.args = {
+    isLoading: true,
+};
+
+isLoadingLight.decorators = [ThemeDecorator(Theme.LIGHT)];
+
+export const Error = Template.bind({});
+Error.args = {
+    error: 'error text',
+};
+
+export const ErrorLight = Template.bind({});
+ErrorLight.args = {
+    error: 'error text',
+};
+
+ErrorLight.decorators = [ThemeDecorator(Theme.LIGHT)];

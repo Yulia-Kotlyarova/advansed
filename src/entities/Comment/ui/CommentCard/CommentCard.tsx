@@ -27,18 +27,18 @@ export const CommentCard = memo(({ className, comment, isLoading }: CommentCardP
 
     return (
         <div className={classNames(classes.CommentCard, {}, [className])}>
-            {comment.user.avatar
+            {comment.user?.avatar
             // eslint-disable-next-line i18next/no-literal-string
                 ? <Avatar className={classes.avatar} alt="avatar" avatar={comment.user.avatar} />
                 : (
                     <div className={classes.mockAvatar}>
                         <span className={classes.name}>
-                            {comment.user.username.split('')[0]}
+                            {comment.user?.username.split('')[0]}
                         </span>
                     </div>
                 )}
             <div>
-                <BaseText title={comment.user.username} size="s" />
+                <BaseText title={comment.user?.username} size="s" />
                 <BaseText text={comment.text} />
             </div>
         </div>

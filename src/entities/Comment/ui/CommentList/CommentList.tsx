@@ -9,15 +9,23 @@ import classes from './CommentList.module.scss';
 interface CommentListProps {
   className?: string;
   comments?: Comment[];
+  isLoading?: boolean;
+  error?: string;
 }
 
-export const CommentList = memo(({ className, comments }: CommentListProps) => {
+export const CommentList = memo(({
+    className, comments, isLoading, error,
+}: CommentListProps) => {
     const { t } = useTranslation('article');
+
+    if (error) {
+        return <BaseText theme="error" text={error} />;
+    }
 
     return (
         <div className={classNames(classes.CommentList, {}, [className])}>
             {comments?.length
-                ? comments.map((comment) => <CommentCard comment={comment} />)
+                ? comments.map((comment) => <CommentCard isLoading={isLoading} comment={comment} />)
                 : <BaseText text={t('no comments')} />}
         </div>
     );
