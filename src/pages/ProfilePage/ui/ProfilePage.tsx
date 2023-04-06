@@ -11,13 +11,15 @@ import {
     profileReducer,
     ProfileCard, getProfileValidateError,
 } from 'entities/Profile';
-import { useCallback, useEffect } from 'react';
+import { useCallback } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { Currency } from 'entities/Currency/model/types/currancy';
 import { Country } from 'entities/Country/model/types/country';
 import { BaseText } from 'shared/ui/BaseText/BaseText';
 import { ValidateProfileError } from 'entities/Profile/model/types/profile';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { useParams } from 'react-router-dom';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 interface ProfilePageProps {
@@ -37,6 +39,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
     const error = useSelector(getProfileError);
     const readonly = useSelector(getProfileReadonly);
     const validateError = useSelector(getProfileValidateError);
+    const { id } = useParams<{id: string}>();
 
     const validateErrorsTranslate = {
         [ValidateProfileError.INCORRECT_USER_DATA]: t('incorrect user data'),
@@ -46,14 +49,11 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
         [ValidateProfileError.INCORRECT_NO_DATA]: t('no data'),
     };
 
-    console.log('ProfilePage');
-
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            console.log('dispatch(fetchProfileData())');
-            dispatch(fetchProfileData());
+    useInitialEffect(() => {
+        if (id) {
+            dispatch(fetchProfileData(id));
         }
-    }, [dispatch]);
+    });
 
     const onChangeFirstName = useCallback((value?: string) => {
         dispatch(profileActions.updateProfile({ first: value ?? '' }));

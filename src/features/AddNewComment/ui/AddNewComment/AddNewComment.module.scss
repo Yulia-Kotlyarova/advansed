@@ -1,0 +1,15 @@
+.AddNewComment {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+
+    .input {
+        width: 100%;
+    }
+
+    .sendBtn {
+        position: absolute;
+        right: 0;
+    }
+}

@@ -17,7 +17,10 @@
       "title": "React",
       "subtitle": "smth about React",
       "img": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg",
-      "tag": ["REACT", "IT"],
+      "tag": [
+        "REACT",
+        "IT"
+      ],
       "views": 1033,
       "createdDate": "11.02.2023",
       "blocks": [
@@ -100,6 +103,36 @@
       "text": "small comment",
       "articleId": "1",
       "userId": "2"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "dgrgrdgdrg",
+      "id": "7VR4hUZ"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "aaa",
+      "id": "eEpBJs4"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "1",
+      "id": "fSba0JV"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "dddd",
+      "id": "aRetibw"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "ssss",
+      "id": "i5QBxOP"
     }
   ],
   "users": [
@@ -118,14 +151,28 @@
       "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
     }
   ],
-  "profile": {
-    "first": "у",
-    "lastname": "у",
-    "age": 22,
-    "currency": "EUR",
-    "country": "Armenia",
-    "city": "sub",
-    "username": "admin",
-    "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "first": "у",
+      "lastname": "у",
+      "age": 22,
+      "currency": "EUR",
+      "country": "Armenia",
+      "city": "sub",
+      "username": "admin",
+      "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
+    },
+    {
+      "id": "2",
+      "first": "у",
+      "lastname": "у",
+      "age": 40,
+      "currency": "USD",
+      "country": "Armenia",
+      "city": "sub",
+      "username": "user",
+      "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
+    }
+  ]
 }

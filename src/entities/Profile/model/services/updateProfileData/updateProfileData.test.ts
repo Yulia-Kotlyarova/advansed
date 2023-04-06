@@ -6,6 +6,7 @@ import { updateProfileData } from './updateProfileData';
 
 describe('updateProfileData', () => {
     const profileData = {
+        id: '1',
         username: 'admin',
         age: 22,
         country: Country.Ukraine,

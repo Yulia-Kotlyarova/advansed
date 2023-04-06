@@ -6,6 +6,7 @@ import { profileActions, profileReducer } from './profileSlice';
 
 describe('profileSlice.test', () => {
     const data = {
+        id: '1',
         username: 'admin',
         age: 26,
         country: Country.Ukraine,

@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { memo } from 'react';
+import { memo, useCallback } from 'react';
 import { ArticleDetails } from 'entities/Article';
 import { useParams } from 'react-router-dom';
 import { BaseText } from 'shared/ui/BaseText/BaseText';
@@ -10,6 +10,9 @@ import { getArticleCommentsError, getArticleCommentsLoading } from 'pages/Articl
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { fetchCommentByArticleId } from 'pages/ArticlePage/model/services/fetchCommentByArticleId/fetchCommentByArticleId';
+import { AddNewComment, addNewCommentActions } from 'features/AddNewComment';
+import { addCommentForArticle } from 'pages/ArticlePage/model/services/addCommentForArticle/addCommentForArticle';
+import { getNewCommentText } from 'features/AddNewComment/model/selectors/addNewCommentSelectors';
 import { articleDetailsCommentReducer, getArticlesComment } from '../model/slice/ArticleDetailsCommentSlice';
 
 const reducers: ReducersList = {
@@ -32,10 +35,15 @@ const ArticlePage = (props: any) => {
         dispatch(fetchCommentByArticleId(id));
     });
 
+    const sendNewComment = useCallback((text: string) => {
+        dispatch(addCommentForArticle(text));
+    }, [dispatch]);
+
     return (
         <DynamicModalLoader reducers={reducers} removeAfterUnmount>
             <ArticleDetails id={id} />
             <BaseText text={t('comments')} size="m" />
+            <AddNewComment sendNewComment={sendNewComment} />
             <CommentList isLoading={isLoading} error={error} comments={comments} />
         </DynamicModalLoader>
     );

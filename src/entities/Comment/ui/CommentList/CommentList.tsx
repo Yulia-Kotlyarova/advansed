@@ -17,7 +17,15 @@ export const CommentList = memo(({
     className, comments, isLoading, error,
 }: CommentListProps) => {
     const { t } = useTranslation('article');
-
+    if (isLoading) {
+        return (
+            <>
+                <CommentCard isLoading={isLoading} />
+                <CommentCard isLoading={isLoading} />
+                <CommentCard isLoading={isLoading} />
+            </>
+        );
+    }
     if (error) {
         return <BaseText theme="error" text={error} />;
     }
