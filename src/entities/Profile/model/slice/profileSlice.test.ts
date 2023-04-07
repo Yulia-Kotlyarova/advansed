@@ -1,7 +1,7 @@
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
-import { fetchProfileData } from '../services/fetchProfileData/fetchProfileData';
-import { ProfileSchema, ValidateProfileError } from '../types/profile';
+import { updateProfileData } from 'entities/Profile';
+import { ProfileSchema } from '../types/profile';
 import { profileActions, profileReducer } from './profileSlice';
 
 describe('profileSlice.test', () => {
@@ -56,7 +56,7 @@ describe('profileSlice.test', () => {
 
         expect(profileReducer(
            state as ProfileSchema,
-           fetchProfileData.pending,
+           updateProfileData.pending,
         )).toEqual({
             isLoading: true,
             // validateError: undefined,
@@ -70,10 +70,9 @@ describe('profileSlice.test', () => {
 
         expect(profileReducer(
            state as ProfileSchema,
-           fetchProfileData.fulfilled(data, ''),
+           updateProfileData.fulfilled(data, ''),
         )).toEqual({
             isLoading: false,
-            readonly: true,
             validateError: undefined,
             form: data,
             data,
