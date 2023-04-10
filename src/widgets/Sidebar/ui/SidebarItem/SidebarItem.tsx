@@ -2,8 +2,8 @@ import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { BaseLink, BaseLinkTheme } from 'shared/ui/BaseLink/BaseLink';
+import { SidebarItemType } from 'widgets/Sidebar/model/types/sidebar';
 import classes from './SidebarItem.module.scss';
-import { SidebarItemType } from '../../model/items';
 
 interface SidebarItemProps {
     item: SidebarItemType;

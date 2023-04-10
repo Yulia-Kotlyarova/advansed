@@ -3,10 +3,10 @@ import React, { useMemo, useState } from 'react';
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher/ThemeSwitcher';
 import { LangSwitcher } from 'widgets/LangSwitcher';
 import { BaseButton } from 'shared/ui/BaseButton/BaseButton';
-import { SidebarItemsList } from 'widgets/Sidebar/model/items';
 import { SidebarItem } from 'widgets/Sidebar/ui/SidebarItem/SidebarItem';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from 'entities/User/model';
+import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import classes from './Sidebar.module.scss';
 
 interface SidebarProps {
@@ -16,8 +16,9 @@ interface SidebarProps {
 export const Sidebar = ({ className }: SidebarProps) => {
     const isAuth = useSelector(getUserAuthData);
     const [isOpen, setIsOpen] = useState(false);
+    const sidebarItemsList = useSelector(getSidebarItems);
 
-    const itemsList = useMemo(() => SidebarItemsList.map((item) => {
+    const itemsList = useMemo(() => sidebarItemsList.map((item) => {
         if (!item.authOnly) {
             return (
                 <SidebarItem
