@@ -1,0 +1,17 @@
+.ArticleViewSelector {
+    padding: 20px 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    margin-left: 12px;
+    fill: var(--secondary-color);
+    transition: 0.3s;
+}
+
+.notSelected {
+    fill: var(--primary-font-color);
+}
