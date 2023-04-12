@@ -21,13 +21,6 @@ export const getSidebarItems = createSelector(
                 Icon: AboutIcon,
                 text: 'about',
             },
-
-            // {
-            //     path: RoutePath.article_list,
-            //     Icon: ArticleListIcon,
-            //     text: 'article list',
-            //     authOnly: true,
-            // },
         ];
 
         if (userData) {

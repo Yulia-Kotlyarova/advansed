@@ -1,18 +1,19 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
 import { ArticleDetails } from 'entities/Article';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { BaseText } from 'shared/ui/BaseText/BaseText';
 import { CommentList } from 'entities/Comment';
 import { DynamicModalLoader, ReducersList } from 'shared/lib/components/DynamicModalLoader/DynamicModalLoader';
 import { useSelector } from 'react-redux';
-import { getArticleCommentsError, getArticleCommentsLoading } from 'pages/ArticlePage/model/selectors/commrnts/comments';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { fetchCommentByArticleId } from 'pages/ArticlePage/model/services/fetchCommentByArticleId/fetchCommentByArticleId';
-import { AddNewComment, addNewCommentActions } from 'features/AddNewComment';
-import { addCommentForArticle } from 'pages/ArticlePage/model/services/addCommentForArticle/addCommentForArticle';
-import { getNewCommentText } from 'features/AddNewComment/model/selectors/addNewCommentSelectors';
+import { AddNewComment } from 'features/AddNewComment';
+import { BaseButton } from 'shared/ui/BaseButton/BaseButton';
+import { RoutePath } from 'app/providers/router/routeConfig/routeConfig';
+import { addCommentForArticle } from '../model/services/addCommentForArticle/addCommentForArticle';
+import { fetchCommentByArticleId } from '../model/services/fetchCommentByArticleId/fetchCommentByArticleId';
+import { getArticleCommentsError, getArticleCommentsLoading } from '../model/selectors/commrnts/comments';
 import { articleDetailsCommentReducer, getArticlesComment } from '../model/slice/ArticleDetailsCommentSlice';
 
 const reducers: ReducersList = {
@@ -23,6 +24,7 @@ const ArticlePage = (props: any) => {
     const { t } = useTranslation('article');
     const { id } = useParams<{ id: string }>();
     const dispatch = useAppDispatch();
+    const navigate = useNavigate();
     const comments = useSelector(getArticlesComment.selectAll);
     const isLoading = useSelector(getArticleCommentsLoading);
     const error = useSelector(getArticleCommentsError);
@@ -39,8 +41,15 @@ const ArticlePage = (props: any) => {
         dispatch(addCommentForArticle(text));
     }, [dispatch]);
 
+    const handleBackToList = useCallback(() => {
+        navigate(RoutePath.article_list);
+    }, []);
+
     return (
         <DynamicModalLoader reducers={reducers} removeAfterUnmount>
+            <BaseButton theme="secondary" onClick={handleBackToList}>
+                {t('back')}
+            </BaseButton>
             <ArticleDetails id={id} />
             <BaseText text={t('comments')} size="m" />
             <AddNewComment sendNewComment={sendNewComment} />

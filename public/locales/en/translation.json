@@ -5,10 +5,18 @@
   "LogIn": "LogIn",
   "LogOut": "LogOut",
   "Page 404": "Page 404",
+  "Read more": {
+    "": {
+      "": {
+        "": ""
+      }
+    }
+  },
   "Send": "Send",
   "Text a comment": "Text a comment",
   "about": "About",
   "avatar": "",
+  "back": "",
   "cancel": "",
   "chancel": "",
   "comments": "",
@@ -33,5 +41,12 @@
   "restart": "Upload the page",
   "save": "",
   "server error": "",
-  "test": "test text"
+  "test": "test text",
+  "Читать далее": {
+    "": {
+      "": {
+        "": ""
+      }
+    }
+  }
 }

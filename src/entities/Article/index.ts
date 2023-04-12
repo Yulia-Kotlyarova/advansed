@@ -1,3 +1,6 @@
+export { ArticleList } from './model/ui/ArticleList/ArticleList';
+export { ArticleListItem } from './model/ui/ArticleListItem/ArticleListItem';
+
 export { Article } from './model/types/article';
 export { ArticleDetails } from './model/ui/ArticleDetails/ArticleDetails';
 

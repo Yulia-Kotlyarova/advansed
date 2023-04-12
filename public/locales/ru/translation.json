@@ -5,10 +5,18 @@
   "LogIn": "LogIn",
   "LogOut": "Выйти",
   "Page 404": "Страница не найдена 404",
+  "Read more": {
+    "": {
+      "": {
+        "": ""
+      }
+    }
+  },
   "Send": "Send",
   "Text a comment": "Text a comment",
   "about": "о компании",
   "avatar": "",
+  "back": "",
   "cancel": "",
   "chancel": "",
   "comments": "",
@@ -33,5 +41,12 @@
   "restart": "Обновить страницу",
   "save": "",
   "server error": "",
-  "test": "тест текст"
+  "test": "тест текст",
+  "Читать далее": {
+    "": {
+      "": {
+        "": ""
+      }
+    }
+  }
 }

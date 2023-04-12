@@ -14,7 +14,7 @@ export enum AppRoutes {
   MAIN = 'main',
   ABOUT = 'about',
   PROFILE = 'profile',
-  // ARTICLE_LIST = 'article_list',
+  ARTICLE_LIST = 'article_list',
   ARTICLE = 'article',
   // last
   PAGE_404 = 'not_found'
@@ -25,7 +25,7 @@ export const RoutePath: Record<AppRoutes, string> = {
     [AppRoutes.ABOUT]: '/about',
     [AppRoutes.PROFILE]: '/profile/',
     [AppRoutes.ARTICLE]: '/articles/', //* + id
-    // [AppRoutes.ARTICLE_LIST]: '/articles',
+    [AppRoutes.ARTICLE_LIST]: '/articles',
     [AppRoutes.PAGE_404]: '*',
 };
 
@@ -48,11 +48,11 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
         element: <ArticlePage />,
         authOnly: true,
     },
-    // [AppRoutes.ARTICLE_LIST]: {
-    //     path: RoutePath.article_list,
-    //     element: <ArticleListPage />,
-    //     authOnly: true,
-    // },
+    [AppRoutes.ARTICLE_LIST]: {
+        path: RoutePath.article_list,
+        element: <ArticleListPage />,
+        authOnly: true,
+    },
     [AppRoutes.PAGE_404]: {
         path: RoutePath.not_found,
         element: <PageNotFound />,

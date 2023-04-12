@@ -1,0 +1,13 @@
+.Card {
+    padding: 15px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--secondary-color);
+    background-color: var(--card-bg);
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+        filter: brightness(110%);
+    }
+}
