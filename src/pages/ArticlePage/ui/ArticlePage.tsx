@@ -11,6 +11,7 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { AddNewComment } from 'features/AddNewComment';
 import { BaseButton } from 'shared/ui/BaseButton/BaseButton';
 import { RoutePath } from 'app/providers/router/routeConfig/routeConfig';
+import { Page } from 'shared/ui/Page/Page';
 import { addCommentForArticle } from '../model/services/addCommentForArticle/addCommentForArticle';
 import { fetchCommentByArticleId } from '../model/services/fetchCommentByArticleId/fetchCommentByArticleId';
 import { getArticleCommentsError, getArticleCommentsLoading } from '../model/selectors/commrnts/comments';
@@ -29,10 +30,6 @@ const ArticlePage = (props: any) => {
     const isLoading = useSelector(getArticleCommentsLoading);
     const error = useSelector(getArticleCommentsError);
 
-    if (!id) {
-        return <BaseText text={t('404')} theme="error" />;
-    }
-
     useInitialEffect(() => {
         dispatch(fetchCommentByArticleId(id));
     });
@@ -45,15 +42,25 @@ const ArticlePage = (props: any) => {
         navigate(RoutePath.article_list);
     }, []);
 
+    if (!id) {
+        return (
+            <Page>
+                <BaseText text={t('404')} theme="error" />
+            </Page>
+        );
+    }
+
     return (
         <DynamicModalLoader reducers={reducers} removeAfterUnmount>
-            <BaseButton theme="secondary" onClick={handleBackToList}>
-                {t('back')}
-            </BaseButton>
-            <ArticleDetails id={id} />
-            <BaseText text={t('comments')} size="m" />
-            <AddNewComment sendNewComment={sendNewComment} />
-            <CommentList isLoading={isLoading} error={error} comments={comments} />
+            <Page>
+                <BaseButton theme="secondary" onClick={handleBackToList}>
+                    {t('back')}
+                </BaseButton>
+                <ArticleDetails id={id} />
+                <BaseText text={t('comments')} size="m" />
+                <AddNewComment sendNewComment={sendNewComment} />
+                <CommentList isLoading={isLoading} error={error} comments={comments} />
+            </Page>
         </DynamicModalLoader>
     );
 };

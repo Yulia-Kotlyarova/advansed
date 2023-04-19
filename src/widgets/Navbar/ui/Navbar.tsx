@@ -26,16 +26,16 @@ export const Navbar = ({ className }: NavbarProps) => {
 
     if (authData?.username) {
         return (
-            <div className={classNames(classes.Navbar, {}, [className])}>
+            <header className={classNames(classes.Navbar, {}, [className])}>
                 <div className={classNames(classes.links, {}, [])} />
                 <BaseButton onClick={() => onLogOut()}>
                     {t('LogOut')}
                 </BaseButton>
-            </div>
+            </header>
         );
     }
     return (
-        <div className={classNames(classes.Navbar, {}, [className])}>
+        <header className={classNames(classes.Navbar, {}, [className])}>
             <div className={classNames(classes.links, {}, [])} />
             <BaseButton onClick={() => setIsAuthModal(true)}>
                 {t('LogIn')}
@@ -48,6 +48,6 @@ export const Navbar = ({ className }: NavbarProps) => {
                     onClose={() => setIsAuthModal(false)}
                 />
             )}
-        </div>
+        </header>
     );
 };

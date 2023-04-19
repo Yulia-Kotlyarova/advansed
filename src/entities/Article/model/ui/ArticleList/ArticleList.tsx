@@ -13,25 +13,19 @@ interface ArticleListProps {
 }
 
 const getSkeletons = (view: ArticleView) => (
-    new Array(view === ArticleView.BIG ? 3 : 9)
-        .fill(0)
-        .map((item, index) => (
-            // eslint-disable-next-line react/no-array-index-key
-            <ArticleListItemSkeleton className={classes.card} key={index} view={view} />
-        ))
+    <div className={classNames(classes.ArticleList, {}, [classes[ArticleView.SMALL]])}>
+        {new Array(view === ArticleView.BIG ? 3 : 9)
+            .fill(0)
+            .map((item, index) => (
+                // eslint-disable-next-line react/no-array-index-key
+                <ArticleListItemSkeleton className={classes.card} key={index} view={view} />
+            ))}
+    </div>
 );
 
 export const ArticleList = memo(({
     className, articles, view = ArticleView.SMALL, isLoading,
 }: ArticleListProps) => {
-    if (isLoading) {
-        return (
-            <div className={classNames(classes.ArticleList, {}, [className, classes[ArticleView.SMALL]])}>
-                {getSkeletons(view)}
-            </div>
-        );
-    }
-
     const renderArticles = (article: Article) => (
         <ArticleListItem
             key={article.id}
@@ -46,6 +40,7 @@ export const ArticleList = memo(({
             {articles.length > 0
                 ? articles.map(renderArticles)
                 : null}
+            {isLoading && getSkeletons(view)}
         </div>
     );
 });

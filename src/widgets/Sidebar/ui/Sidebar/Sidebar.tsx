@@ -42,7 +42,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
     }), [isAuth?.username]);
 
     return (
-        <div
+        <nav
             data-testid="sidebar"
             className={classNames(classes.Sidebar, { [classes.isOpen]: isOpen }, [className])}
         >
@@ -63,6 +63,6 @@ export const Sidebar = ({ className }: SidebarProps) => {
                 <ThemeSwitcher className="" />
                 <LangSwitcher className="" />
             </div>
-        </div>
+        </nav>
     );
 };
