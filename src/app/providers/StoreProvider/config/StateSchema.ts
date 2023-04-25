@@ -5,8 +5,6 @@ import {
 } from '@reduxjs/toolkit';
 import { ProfileSchema } from 'entities/Profile';
 import { AxiosInstance } from 'axios';
-import { To } from '@remix-run/router';
-import { NavigateOptions } from 'react-router/dist/lib/context';
 import { ArticleDetailsSchema } from 'entities/Article';
 import { ArticleDetailsCommentSchema } from 'pages/ArticlePage';
 import { AddNewCommentSchema } from 'features/AddNewComment';
@@ -26,11 +24,14 @@ export interface StateSchema {
 
 export type StateSchemaKey = keyof StateSchema;
 
+export type MountedReducer = OptionalRecord<StateSchemaKey, boolean>;
+
 export interface ReducerManager {
     getReducerMap: () => ReducersMapObject<StateSchema>,
     reduce: (state: StateSchema, action: any) => CombinedState<StateSchema>,
     add: (key: StateSchemaKey, reducer: Reducer) => void,
     remove: (key: StateSchemaKey) => void,
+    getMountedReducer: () => MountedReducer,
 }
 
 export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
@@ -39,7 +40,6 @@ export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
 
 export interface ThunkExtra {
     api: AxiosInstance,
-    navigation?: (to: To, options?: NavigateOptions) => void,
 }
 
 export interface ThunkConfig<T> {

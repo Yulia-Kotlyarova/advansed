@@ -1,6 +1,6 @@
 import { ReactNode, useEffect } from 'react';
 import { useDispatch, useStore } from 'react-redux';
-import { ReduxStoreWithManager } from 'app/providers/StoreProvider';
+import { ReduxStoreWithManager, StateSchema } from 'app/providers/StoreProvider';
 import { StateSchemaKey } from 'app/providers/StoreProvider/config/StateSchema';
 import { Reducer } from '@reduxjs/toolkit';
 
@@ -27,8 +27,13 @@ export const DynamicModalLoader = (props: DynamicModalLoaderProps) => {
     const store = useStore() as ReduxStoreWithManager;
 
     useEffect(() => {
+        const mountedReducers = store.reducerManager.getMountedReducer();
         Object.entries(reducers).forEach(([reducerKey, reducer]) => {
-            store.reducerManager.add(reducerKey as StateSchemaKey, reducer);
+            // eslint-disable-next-line no-restricted-globals
+            const mounted = mountedReducers[name as unknown as StateSchemaKey];
+            if (!mounted) {
+                store.reducerManager.add(reducerKey as StateSchemaKey, reducer);
+            }
         });
 
         return () => {
