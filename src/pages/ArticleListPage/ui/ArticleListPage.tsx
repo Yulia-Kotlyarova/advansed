@@ -38,7 +38,6 @@ const ArticleListPage = (props: ArticleListPageProps) => {
 
     const onLoadNextPart = useCallback(() => {
         if (hasMore && !isLoading) {
-            dispatch(articlesPageActions.setPage(page + 1));
             dispatch(fetchNextArticlesPage());
         }
     }, [page, hasMore, isLoading]);

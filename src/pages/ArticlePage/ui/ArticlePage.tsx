@@ -51,7 +51,7 @@ const ArticlePage = (props: any) => {
     }
 
     return (
-        <DynamicModalLoader reducers={reducers} removeAfterUnmount>
+        <DynamicModalLoader reducers={reducers}>
             <Page>
                 <BaseButton theme="secondary" onClick={handleBackToList}>
                     {t('back')}

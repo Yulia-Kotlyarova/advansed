@@ -9,9 +9,11 @@ import { ArticleDetailsSchema } from 'entities/Article';
 import { ArticleDetailsCommentSchema } from 'pages/ArticlePage';
 import { AddNewCommentSchema } from 'features/AddNewComment';
 import { ArticlesPageSchema } from 'pages/ArticleListPage/model/types/articleList';
+import { ScrollSaverSchema } from 'features/ScrollSaver';
 
 export interface StateSchema {
     user: UserSchema,
+    scroll: ScrollSaverSchema,
 
     // async reducers
     loginForm?: LoginSchema;
