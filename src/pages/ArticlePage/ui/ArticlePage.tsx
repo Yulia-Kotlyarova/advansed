@@ -18,6 +18,7 @@ import {
     getArticleRecommendationsLoading,
 } from 'pages/ArticlePage/model/selectors/recommendations/recommendations';
 import { articleDetailPageReducer } from 'pages/ArticlePage/model/slice';
+import { ArticlePageHeader } from 'pages/ArticlePage/ui/ArticlePageHeader/ArticlePageHeader';
 import { fetchArticleRecommendations } from '../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
 import { addCommentForArticle } from '../model/services/addCommentForArticle/addCommentForArticle';
 import { fetchCommentByArticleId } from '../model/services/fetchCommentByArticleId/fetchCommentByArticleId';
@@ -33,7 +34,6 @@ const ArticlePage = (props: any) => {
     const { t } = useTranslation('article');
     const { id } = useParams<{ id: string }>();
     const dispatch = useAppDispatch();
-    const navigate = useNavigate();
     const comments = useSelector(getArticlesComment.selectAll);
     const isLoading = useSelector(getArticleCommentsLoading);
     const error = useSelector(getArticleCommentsError);
@@ -51,10 +51,6 @@ const ArticlePage = (props: any) => {
         dispatch(addCommentForArticle(text));
     }, [dispatch]);
 
-    const handleBackToList = useCallback(() => {
-        navigate(RoutePath.article_list);
-    }, []);
-
     if (!id) {
         return (
             <Page>
@@ -66,9 +62,7 @@ const ArticlePage = (props: any) => {
     return (
         <DynamicModalLoader reducers={reducers}>
             <Page>
-                <BaseButton theme="secondary" onClick={handleBackToList}>
-                    {t('back')}
-                </BaseButton>
+                <ArticlePageHeader />
                 <ArticleDetails id={id} />
                 <BaseText text={t('comments')} size="m" />
                 <AddNewComment sendNewComment={sendNewComment} />

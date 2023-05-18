@@ -1,3 +1,5 @@
+export { getArticleDetails } from './model/selectors/articleDetails';
+
 export { ArticleViewSelector } from './model/ui/ArticleViewSelector/ArticleViewSelector';
 
 export { ArticleView, ArticleSortField } from './model/types/article';

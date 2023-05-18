@@ -5,7 +5,8 @@ import React, { useState } from 'react';
 import { LoginModal } from 'features/AuthByUserName';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserAuthData, userActions } from 'entities/User/model';
-import { StateSchema } from 'app/providers/StoreProvider';
+import { BaseLink, BaseLinkTheme } from 'shared/ui/BaseLink/BaseLink';
+import { RoutePath } from 'app/providers/router/routeConfig/routeConfig';
 import classes from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -18,7 +19,6 @@ export const Navbar = ({ className }: NavbarProps) => {
     const dispatch = useDispatch();
     const authData = useSelector(getUserAuthData);
     const [isAuthModal, setIsAuthModal] = useState(false);
-    console.log('authData', authData);
 
     const onLogOut = () => {
         dispatch(userActions.toLogOut());
@@ -27,7 +27,14 @@ export const Navbar = ({ className }: NavbarProps) => {
     if (authData?.username) {
         return (
             <header className={classNames(classes.Navbar, {}, [className])}>
-                <div className={classNames(classes.links, {}, [])} />
+                <div className={classNames(classes.links, {}, [])}>
+                    <BaseLink
+                        to={RoutePath.article_create}
+                        theme={BaseLinkTheme.INVERTED}
+                    >
+                        {t('create new article')}
+                    </BaseLink>
+                </div>
                 <BaseButton onClick={() => onLogOut()}>
                     {t('LogOut')}
                 </BaseButton>

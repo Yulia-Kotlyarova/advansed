@@ -34,5 +34,7 @@
         "": ""
       }
     }
-  }
+  },
+  "edit": "edit",
+  "create": "create"
 }
