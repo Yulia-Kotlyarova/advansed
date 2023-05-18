@@ -19,9 +19,7 @@ export const fetchNextArticlesPage = createAsyncThunk<
 
           try {
               dispatch(articlesPageActions.setPage(page + 1));
-              dispatch(fetchArticlesList({
-                  page: page + 1,
-              }));
+              dispatch(fetchArticlesList({}));
           } catch (e) {
               return rejectWithValue('error');
           }

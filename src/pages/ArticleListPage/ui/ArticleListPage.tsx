@@ -1,15 +1,17 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { memo, useCallback } from 'react';
-import { ArticleList, ArticleView, ArticleViewSelector } from 'entities/Article';
+import { ArticleList } from 'entities/Article';
 import { DynamicModalLoader, ReducersList } from 'shared/lib/components/DynamicModalLoader/DynamicModalLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useSelector } from 'react-redux';
 import { BaseText } from 'shared/ui/BaseText/BaseText';
 import { Page } from 'shared/ui/Page/Page';
+import { ArticlesPageFilters } from 'pages/ArticleListPage/ui/ArticlesPageFilters/ArticlesPageFilters';
+import { useSearchParams } from 'react-router-dom';
 import { fetchNextArticlesPage } from '../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { initArticlesPage } from '../model/services/initArticlesPage/initArticlesPage';
-import { articlesPageActions, articlesPageReducer, getArticles } from '../model/slice/articlePageSlice';
+import { articlesPageReducer, getArticles } from '../model/slice/articlePageSlice';
 import {
     getArticlesPageError,
     getArticlesPageHasMore,
@@ -35,6 +37,7 @@ const ArticleListPage = (props: ArticleListPageProps) => {
     const view = useSelector(getArticlesPageView);
     const page = useSelector(getArticlesPageNum);
     const hasMore = useSelector(getArticlesPageHasMore);
+    const [searchParams] = useSearchParams();
 
     const onLoadNextPart = useCallback(() => {
         if (hasMore && !isLoading) {
@@ -43,12 +46,8 @@ const ArticleListPage = (props: ArticleListPageProps) => {
     }, [page, hasMore, isLoading]);
 
     useInitialEffect(() => {
-        dispatch(initArticlesPage());
+        dispatch(initArticlesPage(searchParams));
     });
-
-    const onChangeView = useCallback((view: ArticleView) => {
-        dispatch(articlesPageActions.setView(view));
-    }, []);
 
     return (
         <DynamicModalLoader reducers={reducers}>
@@ -57,8 +56,9 @@ const ArticleListPage = (props: ArticleListPageProps) => {
                 onScrollEnd={onLoadNextPart}
             >
                 {error && <BaseText theme="error" text={error} />}
-                <ArticleViewSelector view={view} onViewClick={onChangeView} />
+                <ArticlesPageFilters />
                 <ArticleList
+                    className={classes.listWrapper}
                     articles={articles}
                     view={view}
                     isLoading={isLoading}

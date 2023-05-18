@@ -6,7 +6,7 @@ import { Theme } from 'app/providers/ThemeProvider';
 import ArticleListPage from './ArticleListPage';
 
 export default {
-    title: 'shared/ArticleListPage',
+    title: 'pages/ArticleListPage',
     component: ArticleListPage,
     argTypes: {
         backgroundColor: { control: 'color' },

@@ -6,10 +6,11 @@ import {
 import { ProfileSchema } from 'entities/Profile';
 import { AxiosInstance } from 'axios';
 import { ArticleDetailsSchema } from 'entities/Article';
-import { ArticleDetailsCommentSchema } from 'pages/ArticlePage';
+import { ArticleDetailsCommentSchema, ArticleDetailsRecommendationsSchema } from 'pages/ArticlePage';
 import { AddNewCommentSchema } from 'features/AddNewComment';
 import { ArticlesPageSchema } from 'pages/ArticleListPage/model/types/articleList';
 import { ScrollSaverSchema } from 'features/ScrollSaver';
+import { ArticleDetailPageSchema } from 'pages/ArticlePage/model/types';
 
 export interface StateSchema {
     user: UserSchema,
@@ -19,9 +20,9 @@ export interface StateSchema {
     loginForm?: LoginSchema;
     profile?: ProfileSchema;
     articleDetails?: ArticleDetailsSchema;
-    articleDetailsComments?: ArticleDetailsCommentSchema;
     addNewComment?: AddNewCommentSchema;
     articlesPage?: ArticlesPageSchema;
+    articleDetailPage?: ArticleDetailPageSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

@@ -30,6 +30,7 @@ export const BaseText = memo((props: BaseTextProps) => {
     const mods: Mods = {
         [classes[theme]]: true,
         [classes[align]]: true,
+        // TODO check size class
         [classes[size]]: true,
     };
 

@@ -3,6 +3,8 @@ import { memo } from 'react';
 import { Article, ArticleListItem } from 'entities/Article';
 import { ArticleView } from 'entities/Article/model/types/article';
 import { ArticleListItemSkeleton } from 'entities/Article/model/ui/ArticleListItem/ArticleListItemSkeleton';
+import { BaseText } from 'shared/ui/BaseText/BaseText';
+import { useTranslation } from 'react-i18next';
 import classes from './ArticleList.module.scss';
 
 interface ArticleListProps {
@@ -26,6 +28,8 @@ const getSkeletons = (view: ArticleView) => (
 export const ArticleList = memo(({
     className, articles, view = ArticleView.SMALL, isLoading,
 }: ArticleListProps) => {
+    const { t } = useTranslation('article');
+
     const renderArticles = (article: Article) => (
         <ArticleListItem
             key={article.id}
@@ -34,6 +38,10 @@ export const ArticleList = memo(({
             view={view}
         />
     );
+
+    if (!isLoading && articles.length === 0) {
+        return <BaseText theme="error" text={t('no articles')} />;
+    }
 
     return (
         <div className={classNames(classes.ArticleList, {}, [className, classes[ArticleView.SMALL]])}>

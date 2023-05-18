@@ -1,10 +1,15 @@
 {
   "404": "",
+  "ALL": "",
+  "ECONOMICS": "",
+  "IT": "",
   "Input Name": "Input Name",
   "Input Password": "Input Password",
   "LogIn": "LogIn",
   "LogOut": "LogOut",
+  "Order": "",
   "Page 404": "Page 404",
+  "REACT": "",
   "Read more": {
     "": {
       "": {
@@ -12,16 +17,23 @@
       }
     }
   },
+  "SCIENCE": "",
+  "Search": "",
   "Send": "Send",
+  "Sort": "",
+  "Sort by": "",
   "Text a comment": "Text a comment",
   "about": "About",
+  "ascending": "",
   "avatar": "",
   "back": "",
   "cancel": "",
   "chancel": "",
   "comments": "",
   "copy": "copy",
+  "date": "",
   "decrement": "",
+  "descending": "",
   "edit": "",
   "error": "Something goes wrong...",
   "home": "Home",
@@ -33,15 +45,19 @@
   "incorrect user data": "",
   "increment": "",
   "main": "",
+  "no articles": "",
   "no comments": "",
   "no data": "",
   "page error": "Something goes wrong...",
   "profile": "Profile",
   "profile page": "",
+  "recommendations": "",
   "restart": "Upload the page",
   "save": "",
   "server error": "",
   "test": "test text",
+  "title": "",
+  "view": "",
   "Читать далее": {
     "": {
       "": {

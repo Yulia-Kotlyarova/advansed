@@ -1,5 +1,10 @@
 {
   "404": "",
+  "ALL": "ALL",
+  "ECONOMICS": "ECONOMICS",
+  "IT": "IT",
+  "Order": "Order",
+  "REACT": "REACT",
   "Read more": {
     "": {
       "": {
@@ -7,10 +12,22 @@
       }
     }
   },
+  "SCIENCE": "SCIENCE",
+  "Search": "Search",
+  "Sort": "Sort",
+  "Sort by": "Sort by",
+  "ascending": "ascending",
   "avatar": "",
   "back": "back",
   "comments": "comments",
+  "date": "date",
+  "descending": "descending",
+  "no articles": "",
   "no comments": "",
+  "reccomendations": "reccomendations",
+  "recommendations": "recommendations",
+  "title": "title",
+  "view": "view",
   "Читать далее": {
     "": {
       "": {

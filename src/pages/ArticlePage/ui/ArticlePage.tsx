@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
-import { ArticleDetails } from 'entities/Article';
+import { ArticleDetails, ArticleList, ArticleView } from 'entities/Article';
 import { useNavigate, useParams } from 'react-router-dom';
 import { BaseText } from 'shared/ui/BaseText/BaseText';
 import { CommentList } from 'entities/Comment';
@@ -12,13 +12,21 @@ import { AddNewComment } from 'features/AddNewComment';
 import { BaseButton } from 'shared/ui/BaseButton/BaseButton';
 import { RoutePath } from 'app/providers/router/routeConfig/routeConfig';
 import { Page } from 'shared/ui/Page/Page';
+import { getArticlesRecommendations } from 'pages/ArticlePage/model/slice/ArticleDetailsRecommendationsSlice';
+import {
+    getArticleRecommendationsError,
+    getArticleRecommendationsLoading,
+} from 'pages/ArticlePage/model/selectors/recommendations/recommendations';
+import { articleDetailPageReducer } from 'pages/ArticlePage/model/slice';
+import { fetchArticleRecommendations } from '../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
 import { addCommentForArticle } from '../model/services/addCommentForArticle/addCommentForArticle';
 import { fetchCommentByArticleId } from '../model/services/fetchCommentByArticleId/fetchCommentByArticleId';
 import { getArticleCommentsError, getArticleCommentsLoading } from '../model/selectors/commrnts/comments';
-import { articleDetailsCommentReducer, getArticlesComment } from '../model/slice/ArticleDetailsCommentSlice';
+import { getArticlesComment } from '../model/slice/ArticleDetailsCommentSlice';
+import classes from './ArticlePage.module.scss';
 
 const reducers: ReducersList = {
-    articleDetailsComments: articleDetailsCommentReducer,
+    articleDetailPage: articleDetailPageReducer,
 };
 
 const ArticlePage = (props: any) => {
@@ -30,8 +38,13 @@ const ArticlePage = (props: any) => {
     const isLoading = useSelector(getArticleCommentsLoading);
     const error = useSelector(getArticleCommentsError);
 
+    const recommendations = useSelector(getArticlesRecommendations.selectAll);
+    const recommendationsIsLoading = useSelector(getArticleRecommendationsLoading);
+    const recommendationsError = useSelector(getArticleRecommendationsError);
+
     useInitialEffect(() => {
         dispatch(fetchCommentByArticleId(id));
+        dispatch(fetchArticleRecommendations());
     });
 
     const sendNewComment = useCallback((text: string) => {
@@ -59,6 +72,13 @@ const ArticlePage = (props: any) => {
                 <ArticleDetails id={id} />
                 <BaseText text={t('comments')} size="m" />
                 <AddNewComment sendNewComment={sendNewComment} />
+                <BaseText text={t('recommendations')} size="m" />
+                <ArticleList
+                    articles={recommendations}
+                    isLoading={recommendationsIsLoading}
+                    view={ArticleView.SMALL}
+                    className={classes.articleListWrap}
+                />
                 <CommentList isLoading={isLoading} error={error} comments={comments} />
             </Page>
         </DynamicModalLoader>

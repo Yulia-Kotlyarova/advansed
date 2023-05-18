@@ -2,5 +2,22 @@
   "404": "404",
   "comments": "comments",
   "no comments": "no comments",
-  "back": "back"
+  "back": "back",
+  "Sort by": "Sort by",
+  "Search": "Search",
+  "Sort": "Sort",
+  "ascending": "ascending",
+  "descending": "descending",
+  "title": "title",
+  "view": "view",
+  "date": "date",
+  "Order": "Order",
+  "ALL": "ALL",
+  "IT": "IT",
+  "REACT": "REACT",
+  "ECONOMICS": "ECONOMICS",
+  "SCIENCE": "SCIENCE",
+  "no articles": "no articles",
+  "reccomendations": "reccomendations",
+  "recommendations": "recommendations"
 }

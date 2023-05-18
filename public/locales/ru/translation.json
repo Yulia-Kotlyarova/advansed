@@ -1,10 +1,15 @@
 {
   "404": "",
+  "ALL": "",
+  "ECONOMICS": "",
+  "IT": "",
   "Input Name": "Введите имя",
   "Input Password": "Введите пароль",
   "LogIn": "LogIn",
   "LogOut": "Выйти",
+  "Order": "",
   "Page 404": "Страница не найдена 404",
+  "REACT": "",
   "Read more": {
     "": {
       "": {
@@ -12,16 +17,23 @@
       }
     }
   },
+  "SCIENCE": "",
+  "Search": "",
   "Send": "Send",
+  "Sort": "",
+  "Sort by": "",
   "Text a comment": "Text a comment",
   "about": "о компании",
+  "ascending": "",
   "avatar": "",
   "back": "",
   "cancel": "",
   "chancel": "",
   "comments": "",
   "copy": "copy",
+  "date": "",
   "decrement": "",
+  "descending": "",
   "edit": "",
   "error": "Что-то пошло не так...",
   "home": "Главная",
@@ -33,15 +45,19 @@
   "incorrect user data": "",
   "increment": "",
   "main": "",
+  "no articles": "",
   "no comments": "",
   "no data": "",
   "page error": "Что-то пошло не так...",
   "profile": "Профиль",
   "profile page": "",
+  "recommendations": "",
   "restart": "Обновить страницу",
   "save": "",
   "server error": "",
   "test": "тест текст",
+  "title": "",
+  "view": "",
   "Читать далее": {
     "": {
       "": {
