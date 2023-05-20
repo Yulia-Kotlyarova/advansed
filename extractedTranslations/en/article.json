@@ -20,8 +20,10 @@
   "avatar": "",
   "back": "back",
   "comments": "comments",
+  "create": "create",
   "date": "date",
   "descending": "descending",
+  "edit": "edit",
   "no articles": "",
   "no comments": "",
   "reccomendations": "reccomendations",
@@ -34,7 +36,5 @@
         "": ""
       }
     }
-  },
-  "edit": "edit",
-  "create": "create"
+  }
 }

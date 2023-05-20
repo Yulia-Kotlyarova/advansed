@@ -10,6 +10,7 @@
   "Text a comment": "Text a comment",
   "about": "",
   "copy": "",
+  "create new article": "create new article",
   "error": "",
   "home": "",
   "no comments": "",
@@ -19,6 +20,5 @@
   "Введите пароль": "",
   "Войти": "",
   "Вы ввели неверный логин или пароль": "",
-  "Форма авторизации": "",
-  "create new article": "create new article"
+  "Форма авторизации": ""
 }
