@@ -51,7 +51,7 @@ export const ArticleListItem = memo(({
                         <ArticleTextBlockComponent block={textBlock} className={classes.textBlock} />
                     )}
                     <div className={classes.footer}>
-                        <BaseLink to={RoutePath.article + article.id}>
+                        <BaseLink to={`${RoutePath.article} ${article?.id}`}>
                             <BaseButton theme="secondary">
                                 {t('Read more...')}
                             </BaseButton>
