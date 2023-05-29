@@ -39,15 +39,6 @@ export const ArticleList = memo(({
     const itemsPerRow = isBig ? 1 : 4;
     const rowCount = isBig ? articles.length : Math.ceil(articles.length / itemsPerRow);
 
-    const renderArticles = (article: Article) => (
-        <ArticleListItem
-            key={article.id}
-            className={classes.card}
-            article={article}
-            view={view}
-        />
-    );
-
     if (!isLoading && articles.length === 0) {
         return <BaseText theme="error" text={t('no articles')} />;
     }
@@ -58,13 +49,29 @@ export const ArticleList = memo(({
         style,
         isScrolling,
     }: ListRowProps) => {
-        return (
-            <div key={key} style={style}>
+        const items = [];
+        const fromIndex = index * itemsPerRow;
+        const toIndex = Math.min(fromIndex + itemsPerRow, articles.length);
+
+        for (let i = fromIndex; i < toIndex; i += 1) {
+            items.push(
                 <ArticleListItem
                     className={classes.card}
-                    article={articles[index]}
+                    article={articles[i]}
                     view={view}
+                    key={`str${i}`}
                 />
+                ,
+            );
+        }
+
+        return (
+            <div
+                key={key}
+                style={style}
+                className={classes.row}
+            >
+                {items}
             </div>
         );
     };
@@ -89,7 +96,7 @@ export const ArticleList = memo(({
                     <List
                         height={height ?? 500}
                         rowCount={rowCount}
-                        rowHeight={isBig ? 700 : 400}
+                        rowHeight={isBig ? 700 : 350}
                         rowRenderer={rowRenderer}
                         width={width ? width - 80 : 700}
                         autoHeight
