@@ -1,7 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
-import { Article } from 'entities/Article';
 import { BaseText } from 'shared/ui/BaseText/BaseText';
 import { Icon } from 'shared/ui/Icon/Icon';
 import EyeIcon from 'shared/assets/icons/eye.svg';
@@ -10,6 +9,7 @@ import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { BaseButton } from 'shared/ui/BaseButton/BaseButton';
 import { RoutePath } from 'app/providers/router/routeConfig/routeConfig';
 import { BaseLink } from 'shared/ui/BaseLink/BaseLink';
+import { Article } from '../../..';
 import classes from './ArticleListItem.module.scss';
 import { ArticleBlockType, ArticleTextBlock, ArticleView } from '../../types/article';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';

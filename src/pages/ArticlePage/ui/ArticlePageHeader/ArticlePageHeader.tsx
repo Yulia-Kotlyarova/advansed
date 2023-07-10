@@ -5,8 +5,8 @@ import { BaseButton } from 'shared/ui/BaseButton/BaseButton';
 import { RoutePath } from 'app/providers/router/routeConfig/routeConfig';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { getCanEditArticle } from 'pages/ArticlePage/model/selectors/article/getCanEditArticle';
 import { getArticleDetails } from 'entities/Article';
+import { getCanEditArticle } from '../../model/selectors/article/getCanEditArticle';
 import classes from './ArticlePageHeader.module.scss';
 
 interface ArticlePageHeaderProps {

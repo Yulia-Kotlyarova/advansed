@@ -12,13 +12,13 @@ import { AddNewComment } from 'features/AddNewComment';
 import { BaseButton } from 'shared/ui/BaseButton/BaseButton';
 import { RoutePath } from 'app/providers/router/routeConfig/routeConfig';
 import { Page } from 'shared/ui/Page/Page';
-import { getArticlesRecommendations } from 'pages/ArticlePage/model/slice/ArticleDetailsRecommendationsSlice';
+import { getArticlesRecommendations } from '../model/slice/ArticleDetailsRecommendationsSlice';
 import {
     getArticleRecommendationsError,
     getArticleRecommendationsLoading,
-} from 'pages/ArticlePage/model/selectors/recommendations/recommendations';
-import { articleDetailPageReducer } from 'pages/ArticlePage/model/slice';
-import { ArticlePageHeader } from 'pages/ArticlePage/ui/ArticlePageHeader/ArticlePageHeader';
+} from '../model/selectors/recommendations/recommendations';
+import { articleDetailPageReducer } from '../model/slice';
+import { ArticlePageHeader } from './ArticlePageHeader/ArticlePageHeader';
 import { fetchArticleRecommendations } from '../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
 import { addCommentForArticle } from '../model/services/addCommentForArticle/addCommentForArticle';
 import { fetchCommentByArticleId } from '../model/services/fetchCommentByArticleId/fetchCommentByArticleId';

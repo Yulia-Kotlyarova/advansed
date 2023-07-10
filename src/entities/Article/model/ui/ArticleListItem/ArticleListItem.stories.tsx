@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import { Article, ArticleView } from 'entities/Article/model/types/article';
+import { Article, ArticleView } from '../../types/article';
 import { ArticleListItem } from './ArticleListItem';
 
 export default {

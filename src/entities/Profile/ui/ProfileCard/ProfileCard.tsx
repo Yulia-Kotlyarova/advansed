@@ -1,13 +1,13 @@
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { BaseText } from 'shared/ui/BaseText/BaseText';
 import { BaseInput } from 'shared/ui/BaseInput/BaseInput';
-import { Profile } from 'entities/Profile';
 import { Loader } from 'shared/ui/Loader/Loader';
 import { useTranslation } from 'react-i18next';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { memo } from 'react';
 import { Currency, CurrencySelect } from 'entities/Currency';
 import { Country, CountrySelect } from 'entities/Country';
+import { Profile } from '../..';
 import classes from './ProfileCard.module.scss';
 
 interface ProfileCardProps {

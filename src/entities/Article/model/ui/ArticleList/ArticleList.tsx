@@ -1,14 +1,14 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { memo, useCallback } from 'react';
-import { Article, ArticleListItem } from 'entities/Article';
-import { ArticleView } from 'entities/Article/model/types/article';
-import { ArticleListItemSkeleton } from 'entities/Article/model/ui/ArticleListItem/ArticleListItemSkeleton';
 import { BaseText } from 'shared/ui/BaseText/BaseText';
 import { useTranslation } from 'react-i18next';
 import {
     AutoSizer, List, ListRowProps, WindowScroller,
 } from 'react-virtualized';
 import { PAGE_ID } from 'shared/ui/Page/Page';
+import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
+import { ArticleView } from '../../types/article';
+import { Article, ArticleListItem } from '../../..';
 import classes from './ArticleList.module.scss';
 
 interface ArticleListProps {

@@ -1,7 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Theme, useTheme } from 'app/providers/ThemeProvider';
-import { BaseButton } from 'shared/ui/BaseButton/BaseButton';
 import { memo } from 'react';
+import { BaseButton } from '../BaseButton/BaseButton';
 import classes from './ThemeSwitcher.module.scss';
 import SunIcon from '../../assets/icons/sun-regular.svg';
 import MoonIcon from '../../assets/icons/moon-regular.svg';

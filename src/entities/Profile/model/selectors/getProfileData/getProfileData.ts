@@ -1,6 +1,6 @@
 import { StateSchema } from 'app/providers/StoreProvider';
 import { createSelector } from '@reduxjs/toolkit';
-import { Profile } from 'entities/Profile';
+import { Profile } from '../../..';
 
 export const getProfileData = (state: StateSchema) => state?.profile?.data;
 

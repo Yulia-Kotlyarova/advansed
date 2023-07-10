@@ -4,11 +4,11 @@ import { BaseButton } from 'shared/ui/BaseButton/BaseButton';
 import { BaseInput } from 'shared/ui/BaseInput/BaseInput';
 import { useSelector } from 'react-redux';
 import { memo, useCallback } from 'react';
-import { loginActions, loginReducer } from 'features/AuthByUserName/model/slice/loginSlice';
-import { getLoginState } from 'features/AuthByUserName/model/selectors/getLoginState/getLoginState';
 import { BaseText } from 'shared/ui/BaseText/BaseText';
 import { DynamicModalLoader, ReducersList } from 'shared/lib/components/DynamicModalLoader/DynamicModalLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { getLoginState } from '../../model/selectors/getLoginState/getLoginState';
+import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import classes from './LoginForm.module.scss';
 import { fetchLogin } from '../../model/services/loginByUserName';
 

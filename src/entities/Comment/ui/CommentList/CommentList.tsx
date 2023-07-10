@@ -1,9 +1,9 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { memo } from 'react';
-import { Comment } from 'entities/Comment/model/types/comment';
 import { BaseText } from 'shared/ui/BaseText/BaseText';
-import { CommentCard } from 'entities/Comment';
 import { useTranslation } from 'react-i18next';
+import { Comment } from '../../model/types/comment';
+import { CommentCard } from '../..';
 import classes from './CommentList.module.scss';
 
 interface CommentListProps {

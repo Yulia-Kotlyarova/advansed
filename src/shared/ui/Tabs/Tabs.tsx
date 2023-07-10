@@ -1,5 +1,5 @@
 import { memo, ReactNode } from 'react';
-import { BaseButton } from 'shared/ui/BaseButton/BaseButton';
+import { BaseButton } from '../BaseButton/BaseButton';
 import classes from './Tabs.module.scss';
 
 export interface TabsItem {
