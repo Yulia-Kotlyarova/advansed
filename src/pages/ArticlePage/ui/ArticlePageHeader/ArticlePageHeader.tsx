@@ -1,4 +1,3 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
 import { BaseButton } from 'shared/ui/BaseButton/BaseButton';
@@ -6,14 +5,10 @@ import { RoutePath } from 'app/providers/router/routeConfig/routeConfig';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { getArticleDetails } from 'entities/Article';
+import { HStack } from 'shared/ui/Stack';
 import { getCanEditArticle } from '../../model/selectors/article/getCanEditArticle';
-import classes from './ArticlePageHeader.module.scss';
 
-interface ArticlePageHeaderProps {
-  className?: string;
-}
-
-export const ArticlePageHeader = memo(({ className }: ArticlePageHeaderProps) => {
+export const ArticlePageHeader = memo(() => {
     const navigate = useNavigate();
     const { t } = useTranslation('article');
 
@@ -29,7 +24,7 @@ export const ArticlePageHeader = memo(({ className }: ArticlePageHeaderProps) =>
     }, [article?.id]);
 
     return (
-        <div className={classNames(classes.ArticlePageHeader, {}, [className])}>
+        <HStack justify="between">
             <BaseButton theme="secondary" onClick={handleBackToList}>
                 {t('back')}
             </BaseButton>
@@ -41,6 +36,6 @@ export const ArticlePageHeader = memo(({ className }: ArticlePageHeaderProps) =>
                     {t('edit')}
                 </BaseButton>
             )}
-        </div>
+        </HStack>
     );
 });

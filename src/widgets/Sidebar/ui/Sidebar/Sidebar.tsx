@@ -5,6 +5,7 @@ import { LangSwitcher } from 'widgets/LangSwitcher';
 import { BaseButton } from 'shared/ui/BaseButton/BaseButton';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from 'entities/User/model';
+import { VStack } from 'shared/ui/Stack';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import classes from './Sidebar.module.scss';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
@@ -56,9 +57,9 @@ export const Sidebar = ({ className }: SidebarProps) => {
             >
                 {isOpen ? '>' : '<'}
             </BaseButton>
-            <div className={classNames(classes.links, {}, [])}>
+            <VStack gap="8" align="start">
                 {itemsList}
-            </div>
+            </VStack>
             <div className={classes.switchers}>
                 <ThemeSwitcher className="" />
                 <LangSwitcher className="" />

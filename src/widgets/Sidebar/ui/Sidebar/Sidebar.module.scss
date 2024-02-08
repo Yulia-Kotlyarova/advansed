@@ -11,17 +11,6 @@
     width: var(--sidebar-width);
 }
 
-.links {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    a {
-        padding: 5px 0;
-    }
-}
-
 .switchers {
     position: absolute;
     display: flex;

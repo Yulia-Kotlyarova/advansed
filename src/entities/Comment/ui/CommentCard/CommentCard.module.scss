@@ -1,9 +1,7 @@
 .CommentCard {
-    display: flex;
     padding: 20px 10px;
     border: 1px solid var(--secondary-color);
     border-radius: var(--border-radius);
-    margin-bottom: 20px;
 }
 
 .avatar {
@@ -11,9 +9,6 @@
 }
 
 .mockAvatar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 36px;
     height: 36px;
     background-color: var(--primary-font-color);

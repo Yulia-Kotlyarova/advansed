@@ -12,6 +12,7 @@ import { AddNewComment } from 'features/AddNewComment';
 import { BaseButton } from 'shared/ui/BaseButton/BaseButton';
 import { RoutePath } from 'app/providers/router/routeConfig/routeConfig';
 import { Page } from 'shared/ui/Page/Page';
+import { VStack } from 'shared/ui/Stack';
 import { getArticlesRecommendations } from '../model/slice/ArticleDetailsRecommendationsSlice';
 import {
     getArticleRecommendationsError,
@@ -62,18 +63,20 @@ const ArticlePage = (props: any) => {
     return (
         <DynamicModalLoader reducers={reducers}>
             <Page>
-                <ArticlePageHeader />
-                <ArticleDetails id={id} />
-                <BaseText text={t('comments')} size="m" />
-                <AddNewComment sendNewComment={sendNewComment} />
-                <BaseText text={t('recommendations')} size="m" />
-                <ArticleList
-                    articles={recommendations}
-                    isLoading={recommendationsIsLoading}
-                    view={ArticleView.SMALL}
-                    className={classes.articleListWrap}
-                />
-                <CommentList isLoading={isLoading} error={error} comments={comments} />
+                <VStack gap="16">
+                    <ArticlePageHeader />
+                    <ArticleDetails id={id} />
+                    <BaseText text={t('comments')} size="m" />
+                    <AddNewComment sendNewComment={sendNewComment} />
+                    <BaseText text={t('recommendations')} size="m" />
+                    <ArticleList
+                        articles={recommendations}
+                        isLoading={recommendationsIsLoading}
+                        view={ArticleView.SMALL}
+                        className={classes.articleListWrap}
+                    />
+                    <CommentList isLoading={isLoading} error={error} comments={comments} />
+                </VStack>
             </Page>
         </DynamicModalLoader>
     );

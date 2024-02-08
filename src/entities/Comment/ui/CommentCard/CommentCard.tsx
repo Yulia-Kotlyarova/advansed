@@ -5,6 +5,7 @@ import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { BaseLink } from 'shared/ui/BaseLink/BaseLink';
 import { RoutePath } from 'app/providers/router/routeConfig/routeConfig';
+import { HStack, VStack } from 'shared/ui/Stack';
 import { Comment } from '../../model/types/comment';
 import classes from './CommentCard.module.scss';
 
@@ -17,13 +18,13 @@ interface CommentCardProps {
 export const CommentCard = memo(({ className, comment, isLoading }: CommentCardProps) => {
     if (isLoading) {
         return (
-            <div className={classNames(classes.CommentCard, {}, [className, classes.isLoading])}>
+            <HStack gap="16" className={classNames(classes.CommentCard, {}, [className, classes.isLoading])}>
                 <Skeleton className={classes.avatar} width="36px" height="36px" />
-                <div style={{ width: '100%' }}>
+                <VStack gap="8">
                     <Skeleton width="100%" height="40px" />
                     <Skeleton width="100%" height="100px" />
-                </div>
-            </div>
+                </VStack>
+            </HStack>
         );
     }
 
@@ -32,23 +33,23 @@ export const CommentCard = memo(({ className, comment, isLoading }: CommentCardP
     }
 
     return (
-        <div className={classNames(classes.CommentCard, {}, [className])}>
+        <HStack gap="16" align="start" className={classNames(classes.CommentCard, {}, [className])}>
             <BaseLink to={`${RoutePath.profile}${comment.user.id}`}>
                 {comment.user?.avatar
                 // eslint-disable-next-line i18next/no-literal-string
                     ? <Avatar className={classes.avatar} alt="avatar" avatar={comment.user.avatar} />
                     : (
-                        <div className={classes.mockAvatar}>
+                        <HStack gap="8" className={classes.mockAvatar}>
                             <span className={classes.name}>
                                 {comment.user?.username.split('')[0]}
                             </span>
-                        </div>
+                        </HStack>
                     )}
             </BaseLink>
-            <div>
+            <VStack gap="8" align="start">
                 <BaseText title={comment.user?.username} size="s" />
                 <BaseText text={comment.text} />
-            </div>
-        </div>
+            </VStack>
+        </HStack>
     );
 });

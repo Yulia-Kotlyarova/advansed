@@ -7,6 +7,7 @@ import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { memo } from 'react';
 import { Currency, CurrencySelect } from 'entities/Currency';
 import { Country, CountrySelect } from 'entities/Country';
+import { VStack } from 'shared/ui/Stack';
 import { Profile } from '../..';
 import classes from './ProfileCard.module.scss';
 
@@ -63,7 +64,7 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
     }
 
     return (
-        <div className={classNames(classes.ProfileCard, mods, [className])}>
+        <VStack align="start" gap="16" className={classNames(classes.ProfileCard, mods, [className])}>
             {/* eslint-disable-next-line i18next/no-literal-string */}
             { data?.avatar && <Avatar avatar={data?.avatar} alt={t('avatar')} size="md" />}
             <BaseInput value={data?.first ?? ''} onChange={onChangeFirstName} readOnly={readonly} />
@@ -74,6 +75,6 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
             <BaseInput value={data?.avatar ?? ''} onChange={onChangeAvatar} readOnly={readonly} />
             <CurrencySelect value={data?.currency} onChange={onChangeCurrency} readOnly={readonly} />
             <CountrySelect value={data?.country} onChange={onChangeCountry} readOnly={readonly} />
-        </div>
+        </VStack>
     );
 });

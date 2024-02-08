@@ -1,4 +1,3 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { BaseText } from 'shared/ui/BaseText/BaseText';
 import { BaseButton } from 'shared/ui/BaseButton/BaseButton';
@@ -7,14 +6,13 @@ import { getProfileData, profileActions, updateProfileData } from 'entities/Prof
 import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from 'entities/User/model';
-import classes from './ProfilePageHeader.module.scss';
+import { HStack } from 'shared/ui/Stack';
 
 interface ProfilePageHeaderProps {
-    className?: string;
     readonly?: boolean;
 }
 
-export const ProfilePageHeader = ({ className, readonly }: ProfilePageHeaderProps) => {
+export const ProfilePageHeader = ({ readonly }: ProfilePageHeaderProps) => {
     const { t } = useTranslation('profile');
     const dispatch = useAppDispatch();
 
@@ -35,7 +33,7 @@ export const ProfilePageHeader = ({ className, readonly }: ProfilePageHeaderProp
     }, [dispatch]);
 
     return (
-        <div className={classNames(classes.ProfilePageHeader, {}, [className])}>
+        <HStack justify="between">
             <BaseText title={t('profile')} />
             {canEdit && (readonly
                 ? (
@@ -45,17 +43,17 @@ export const ProfilePageHeader = ({ className, readonly }: ProfilePageHeaderProp
                 )
 
                 : (
-                    <>
+                    <HStack justify="end" gap="16">
                         <BaseButton onClick={onSave}>
                             {t('save')}
                         </BaseButton>
                         <BaseButton theme="outline-red" onClick={onCancelEdit}>
                             {t('cancel')}
                         </BaseButton>
-                    </>
+                    </HStack>
                 )
             )}
 
-        </div>
+        </HStack>
     );
 };

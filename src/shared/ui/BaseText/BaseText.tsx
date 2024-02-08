@@ -35,7 +35,7 @@ export const BaseText = memo((props: BaseTextProps) => {
     };
 
     return (
-        <div className={classNames(classes.BaseText, mods, [className])}>
+        <div className={classNames('', mods, [className])}>
             <h3 className={classNames(classes.title, {}, [className])}>
                 {title}
             </h3>

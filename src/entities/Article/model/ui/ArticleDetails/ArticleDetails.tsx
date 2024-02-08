@@ -10,6 +10,7 @@ import { BaseText } from 'shared/ui/BaseText/BaseText';
 import EyeIcon from 'shared/assets/icons/eye.svg';
 import Calendar from 'shared/assets/icons/calendar.svg';
 import { Icon } from 'shared/ui/Icon/Icon';
+import { VStack } from 'shared/ui/Stack';
 import { articleDetailsReducer } from '../../slice/articleDetailsSlice';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
@@ -42,11 +43,11 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
     const renderBlock = useCallback((block: ArticleBlock) => {
         switch (block.type) {
         case ArticleBlockType.TEXT:
-            return <ArticleTextBlockComponent key={block.id} className={classes.block} block={block} />;
+            return <ArticleTextBlockComponent key={block.id} block={block} />;
         case ArticleBlockType.CODE:
-            return <ArticleCodeBlockComponent key={block.id} className={classes.block} block={block} />;
+            return <ArticleCodeBlockComponent key={block.id} block={block} />;
         case ArticleBlockType.IMAGE:
-            return <ArticleImageBlockComponent key={block.id} className={classes.block} block={block} />;
+            return <ArticleImageBlockComponent key={block.id} block={block} />;
         default:
             return null;
         }
@@ -91,9 +92,9 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
 
     return (
         <DynamicModalLoader reducers={reducers} removeAfterUnmount>
-            <div className={classNames(classes.ArticleDetails, {}, [className])}>
+            <VStack gap="8" align="start" className={classNames(classes.ArticleDetails, {}, [className])}>
                 {content}
-            </div>
+            </VStack>
         </DynamicModalLoader>
     );
 });
