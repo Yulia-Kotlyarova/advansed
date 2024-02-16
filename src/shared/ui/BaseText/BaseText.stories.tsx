@@ -42,6 +42,24 @@ OnlyText.args = {
     text: ' text text text text text',
 };
 
+export const TitleH1 = Template.bind({});
+TitleH1.args = {
+    title: 'Title',
+    size: 'l',
+};
+
+export const TitleH2 = Template.bind({});
+TitleH2.args = {
+    title: 'Title',
+    size: 'm',
+};
+
+export const TitleH3 = Template.bind({});
+TitleH3.args = {
+    title: 'Title',
+    size: 's',
+};
+
 export const ErrorDark = Template.bind({});
 ErrorDark.args = {
     title: 'Title',

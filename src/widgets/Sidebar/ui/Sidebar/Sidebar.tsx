@@ -43,7 +43,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
     }), [isAuth?.username]);
 
     return (
-        <nav
+        <section
             data-testid="sidebar"
             className={classNames(classes.Sidebar, { [classes.isOpen]: isOpen }, [className])}
         >
@@ -57,13 +57,13 @@ export const Sidebar = ({ className }: SidebarProps) => {
             >
                 {isOpen ? '>' : '<'}
             </BaseButton>
-            <VStack gap="8" align="start">
+            <VStack role="navigation" gap="8" align="start">
                 {itemsList}
             </VStack>
             <div className={classes.switchers}>
                 <ThemeSwitcher className="" />
                 <LangSwitcher className="" />
             </div>
-        </nav>
+        </section>
     );
 };

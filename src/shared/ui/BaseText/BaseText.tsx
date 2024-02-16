@@ -17,6 +17,14 @@ interface BaseTextProps {
     size?: TextSize;
 }
 
+type HeaderTagType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
+
+const mapSizeHeaderTag: Record<TextSize, HeaderTagType> = {
+    l: 'h1',
+    m: 'h2',
+    s: 'h3',
+};
+
 export const BaseText = memo((props: BaseTextProps) => {
     const {
         className,
@@ -34,11 +42,16 @@ export const BaseText = memo((props: BaseTextProps) => {
         [classes[size]]: true,
     };
 
+    const HeaderType = mapSizeHeaderTag[size];
+
     return (
         <div className={classNames('', mods, [className])}>
-            <h3 className={classNames(classes.title, {}, [className])}>
-                {title}
-            </h3>
+            {title
+              && (
+                  <HeaderType className={classNames(classes.title, {}, [className])}>
+                      {title}
+                  </HeaderType>
+              )}
             <p className={classNames(classes.text, {}, [className])}>
                 {text}
             </p>
