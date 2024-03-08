@@ -9,5 +9,7 @@
   "no data": "no data",
   "incorrect user data": "incorrect user data",
   "incorrect age": "incorrect age",
-  "incorrect country": "incorrect country"
+  "incorrect country": "incorrect country",
+  "Currency": "Currency",
+  "Country": "Country"
 }

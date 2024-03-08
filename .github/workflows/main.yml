@@ -31,3 +31,4 @@ jobs:
       - name: build storybook
         run: npm run storybook:build
         if: always()
+Выберите значение: Выберите значение

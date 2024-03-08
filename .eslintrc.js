@@ -39,7 +39,19 @@ module.exports = {
         'no-underscore-dangle': 'off',
         'i18next/no-literal-string': [2, {
             markupOnly: true,
-            ignoreAttribute: ['data-testid', 'to', 'theme', 'size', 'border', 'align', 'direction', 'gap', 'justify', 'role'],
+            ignoreAttribute: [
+                'data-testid',
+                'to',
+                'theme',
+                'size',
+                'border',
+                'align',
+                'direction',
+                'gap',
+                'justify',
+                'role',
+                'as',
+            ],
         }],
         'max-len': [2, {
             ignoreComments: true,
