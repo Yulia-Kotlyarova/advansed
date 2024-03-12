@@ -7,6 +7,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getUserAuthData, userActions } from 'entities/User/model';
 import { BaseLink, BaseLinkTheme } from 'shared/ui/BaseLink/BaseLink';
 import { RoutePath } from 'app/providers/router/routeConfig/routeConfig';
+import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
 import classes from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -35,9 +37,20 @@ export const Navbar = ({ className }: NavbarProps) => {
                         {t('create new article')}
                     </BaseLink>
                 </div>
-                <BaseButton onClick={() => onLogOut()}>
-                    {t('LogOut')}
-                </BaseButton>
+                <Dropdown
+                    items={[
+                        {
+                            content: t('Profile'),
+                            onClick: () => onLogOut(),
+                            href: RoutePath.profile + authData.id,
+                        },
+                        {
+                            content: t('LogOut'),
+                            onClick: () => onLogOut(),
+                        },
+                    ]}
+                    trigger={<Avatar alt="" size="sm" avatar={authData.avatar} />}
+                />
             </header>
         );
     }
