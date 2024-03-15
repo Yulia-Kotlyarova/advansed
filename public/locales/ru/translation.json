@@ -2,6 +2,8 @@
   "404": "",
   "ALL": "",
   "Check it out": "",
+  "Choose a value": "",
+  "Choose an option": "",
   "Country": "",
   "Currency": "",
   "ECONOMICS": "",
@@ -64,13 +66,5 @@
   "server error": "",
   "test": "тест текст",
   "title": "",
-  "view": "",
-  "Выберите значение": "",
-  "Читать далее": {
-    "": {
-      "": {
-        "": ""
-      }
-    }
-  }
+  "view": ""
 }

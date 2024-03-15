@@ -33,7 +33,7 @@ export const Listbox = memo((props: ListboxProps) => {
     const {
         className,
         selectedValue,
-        defaultValue = t('Выберите значение'),
+        defaultValue = t('Choose an option'),
         items,
         readOnly = false,
         direction = 'bottom',
