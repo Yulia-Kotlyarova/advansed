@@ -9,8 +9,13 @@ import { useArticleRecommendationsList } from '../../api/articleRecommendationsA
 export const ArticleRecomendationList = memo(() => {
     const { t } = useTranslation('article');
 
-    const { data: recommendations, isLoading, error } = useArticleRecommendationsList('4');
-    if (isLoading || error) {
+    const {
+        data: recommendations,
+        isLoading,
+        error,
+    } = useArticleRecommendationsList(4);
+
+    if (isLoading || error || !recommendations) {
         return null;
     }
 
@@ -21,6 +26,7 @@ export const ArticleRecomendationList = memo(() => {
                 articles={recommendations}
                 isLoading={isLoading}
                 view={ArticleView.SMALL}
+                virtualized={false}
                 className={classes.articleListWrap}
             />
         </VStack>
