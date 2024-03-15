@@ -2,23 +2,23 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import { ArticlePageHeader } from './ArticlePageHeader';
+import { ArticleComments } from './ArticleComments';
 
 export default {
-    title: 'page/ArticlePage/ui/ArticlePageHeader',
-    component: ArticlePageHeader,
+    title: 'page/ArticlePage/ui/ArticleComments',
+    component: ArticleComments,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-    decorators: [StoreDecorator({})],
-} as ComponentMeta<typeof ArticlePageHeader>;
+} as ComponentMeta<typeof ArticleComments>;
 
-const Template: ComponentStory<typeof ArticlePageHeader> = () => <ArticlePageHeader />;
+const Template: ComponentStory<typeof ArticleComments> = (args) => <ArticleComments {...args} />;
 
 export const Primary = Template.bind({});
-Primary.decorators = [ThemeDecorator(Theme.DARK)];
+Primary.args = {};
 
 export const PrimaryLight = Template.bind({});
+PrimaryLight.args = {};
+
 PrimaryLight.decorators = [ThemeDecorator(Theme.LIGHT)];

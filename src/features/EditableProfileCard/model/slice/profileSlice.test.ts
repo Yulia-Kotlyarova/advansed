@@ -1,7 +1,7 @@
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
-import { updateProfileData } from '../..';
-import { ProfileSchema } from '../types/profile';
+import { updateProfileData } from '../services/updateProfileData/updateProfileData';
+import { ProfileSchema } from '../..';
 import { profileActions, profileReducer } from './profileSlice';
 
 describe('profileSlice.test', () => {

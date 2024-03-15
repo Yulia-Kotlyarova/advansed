@@ -2,11 +2,13 @@ import { useTranslation } from 'react-i18next';
 import { BaseText } from 'shared/ui/BaseText/BaseText';
 import { BaseButton } from 'shared/ui/BaseButton/BaseButton';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { getProfileData, profileActions, updateProfileData } from 'entities/Profile';
 import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from 'entities/User/model';
 import { HStack } from 'shared/ui/Stack';
+import { profileActions } from '../../model/slice/profileSlice';
+import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
+import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
 
 interface ProfilePageHeaderProps {
     readonly?: boolean;

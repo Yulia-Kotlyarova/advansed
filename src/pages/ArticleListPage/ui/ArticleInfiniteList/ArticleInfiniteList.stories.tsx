@@ -2,23 +2,23 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import { ArticlePageHeader } from './ArticlePageHeader';
+import { ArticleInfiniteList } from './ArticleInfiniteList';
 
 export default {
-    title: 'page/ArticlePage/ui/ArticlePageHeader',
-    component: ArticlePageHeader,
+    title: 'pages/ArticleListPage/ui/ArticleInfiniteList',
+    component: ArticleInfiniteList,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-    decorators: [StoreDecorator({})],
-} as ComponentMeta<typeof ArticlePageHeader>;
+} as ComponentMeta<typeof ArticleInfiniteList>;
 
-const Template: ComponentStory<typeof ArticlePageHeader> = () => <ArticlePageHeader />;
+const Template: ComponentStory<typeof ArticleInfiniteList> = (args) => <ArticleInfiniteList {...args} />;
 
 export const Primary = Template.bind({});
-Primary.decorators = [ThemeDecorator(Theme.DARK)];
+Primary.args = {};
 
 export const PrimaryLight = Template.bind({});
+PrimaryLight.args = {};
+
 PrimaryLight.decorators = [ThemeDecorator(Theme.LIGHT)];

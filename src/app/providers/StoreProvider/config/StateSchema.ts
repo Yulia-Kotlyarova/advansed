@@ -3,18 +3,19 @@ import { LoginSchema } from 'features/AuthByUserName';
 import {
     CombinedState, EnhancedStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
-import { ProfileSchema } from 'entities/Profile';
 import { AxiosInstance } from 'axios';
 import { ArticleDetailsSchema } from 'entities/Article';
-import { ArticleDetailsCommentSchema, ArticleDetailsRecommendationsSchema } from 'pages/ArticlePage';
 import { AddNewCommentSchema } from 'features/AddNewComment';
 import { ArticlesPageSchema } from 'pages/ArticleListPage/model/types/articleList';
 import { ScrollSaverSchema } from 'features/ScrollSaver';
 import { ArticleDetailPageSchema } from 'pages/ArticlePage/model/types';
+import { rtcApi } from 'shared/api/rtkApi';
+import { ProfileSchema } from 'features/EditableProfileCard';
 
 export interface StateSchema {
     user: UserSchema,
     scroll: ScrollSaverSchema,
+    [rtcApi.reducerPath]: ReturnType<typeof rtcApi.reducer>,
 
     // async reducers
     loginForm?: LoginSchema;

@@ -1,6 +1,7 @@
 {
   "404": "",
   "ALL": "",
+  "Check it out": "",
   "Country": "",
   "Currency": "",
   "ECONOMICS": "",
@@ -11,6 +12,8 @@
   "LogOut": "LogOut",
   "Order": "",
   "Page 404": "Page 404",
+  "Profile": "Profile",
+  "Profile not found": "",
   "REACT": "",
   "Read more": {
     "": {
@@ -69,6 +72,5 @@
         "": ""
       }
     }
-  },
-  "Profile": "Profile"
+  }
 }
