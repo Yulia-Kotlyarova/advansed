@@ -29,12 +29,11 @@ const reducers: ReducersList = {
     profile: profileReducer,
 };
 interface EditableProfileCardProps {
-    className?: string;
     id: string;
 }
 
 export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
-    const { className, id } = props;
+    const { id } = props;
     const { t } = useTranslation('profile');
     const dispatch = useAppDispatch();
 
@@ -89,7 +88,6 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
     return (
         <DynamicModalLoader reducers={reducers}>
             <VStack
-                className={classNames(cls.EditableProfileCard, {}, [className])}
                 align="start"
                 gap="32"
             >

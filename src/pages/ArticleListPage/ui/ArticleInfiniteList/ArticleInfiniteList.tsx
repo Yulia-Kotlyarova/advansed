@@ -1,5 +1,4 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { ArticleList } from 'entities/Article';
 import { useSelector } from 'react-redux';
@@ -8,7 +7,6 @@ import { useSearchParams } from 'react-router-dom';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { BaseText } from 'shared/ui/BaseText/BaseText';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
-import classes from './ArticleInfiniteList.module.scss';
 import { getArticles } from '../../model/slice/articlePageSlice';
 import {
     getArticlesPageError,
@@ -21,8 +19,6 @@ interface ArticleInfiniteListProps {
 }
 
 export const ArticleInfiniteList = memo(({ className }: ArticleInfiniteListProps) => {
-    const { t } = useTranslation('about');
-
     const dispatch = useAppDispatch();
     const isLoading = useSelector(getArticlesPageIsLoading);
     const error = useSelector(getArticlesPageError);
@@ -39,13 +35,10 @@ export const ArticleInfiniteList = memo(({ className }: ArticleInfiniteListProps
     }
 
     return (
-        <div className={classNames(classes.ArticleInfiniteList, {}, [className])}>
-            <ArticleList
-                className={classes.listWrapper}
-                articles={articles}
-                view={view}
-                isLoading={isLoading}
-            />
-        </div>
+        <ArticleList
+            articles={articles}
+            view={view}
+            isLoading={isLoading}
+        />
     );
 });

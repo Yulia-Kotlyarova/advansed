@@ -1,23 +1,18 @@
 .Dropdown {
-  position: relative;
-}
-
-.btn {
-
+    position: relative;
 }
 
 .list {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  outline: transparent;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    outline: transparent;
 }
 
 .item {
-  outline: transparent;
+    outline: transparent;
 
-  &.active {
-   color: var(--primary-color);
-  }
+    &.active {
+        color: var(--primary-color);
+    }
 }
-
