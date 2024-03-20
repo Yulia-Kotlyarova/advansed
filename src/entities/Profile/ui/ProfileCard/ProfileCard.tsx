@@ -67,9 +67,23 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
         <VStack align="start" gap="16" className={classNames(classes.ProfileCard, mods, [className])}>
             {/* eslint-disable-next-line i18next/no-literal-string */}
             { data?.avatar && <Avatar avatar={data?.avatar} alt={t('avatar')} size="md" />}
-            <BaseInput value={data?.first ?? ''} onChange={onChangeFirstName} readOnly={readonly} />
-            <BaseInput value={data?.lastname ?? ''} onChange={onChangeLastName} readOnly={readonly} />
-            <BaseInput value={data?.city ?? ''} onChange={onChangeCity} readOnly={readonly} />
+            <BaseInput
+                value={data?.first ?? ''}
+                onChange={onChangeFirstName}
+                readOnly={readonly}
+                data-testid="ProfileCard.first"
+            />
+            <BaseInput
+                value={data?.lastname ?? ''}
+                onChange={onChangeLastName}
+                readOnly={readonly}
+                data-testid="ProfileCard.lastname"
+            />
+            <BaseInput
+                value={data?.city ?? ''}
+                onChange={onChangeCity}
+                readOnly={readonly}
+            />
             {/* @ts-ignore */}
             <BaseInput value={data?.username ?? ''} onChange={onChangeUsername} readOnly={readonly} />
             <BaseInput value={data?.avatar ?? ''} onChange={onChangeAvatar} readOnly={readonly} />

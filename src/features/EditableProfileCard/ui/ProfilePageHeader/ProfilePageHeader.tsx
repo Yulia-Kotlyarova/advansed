@@ -39,17 +39,27 @@ export const ProfilePageHeader = ({ readonly }: ProfilePageHeaderProps) => {
             <BaseText title={t('profile')} />
             {canEdit && (readonly
                 ? (
-                    <BaseButton onClick={onEdit}>
+                    <BaseButton
+                        onClick={onEdit}
+                        data-testid="ProfilePageHeader.EditBtn"
+                    >
                         {t('edit')}
                     </BaseButton>
                 )
 
                 : (
                     <HStack justify="end" gap="16">
-                        <BaseButton onClick={onSave}>
+                        <BaseButton
+                            onClick={onSave}
+                            data-testid="ProfilePageHeader.SaveBtn"
+                        >
                             {t('save')}
                         </BaseButton>
-                        <BaseButton theme="outline-red" onClick={onCancelEdit}>
+                        <BaseButton
+                            theme="outline-red"
+                            onClick={onCancelEdit}
+                            data-testid="ProfilePageHeader.ChancelBtn"
+                        >
                             {t('cancel')}
                         </BaseButton>
                     </HStack>

@@ -1,4 +1,3 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
 import { BaseText } from 'shared/ui/BaseText/BaseText';
@@ -19,7 +18,6 @@ import {
 } from '../../model/selectors/getProfileValidateError/getProfileValidateError';
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
-import cls from './EditableProfileCard.module.scss';
 import {
     getProfileIsLoading,
 } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
@@ -95,7 +93,12 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
                 {
                     validateError?.length
                             && validateError.map((error) => (
-                                <BaseText key={validateErrorsTranslate[error]} text={error} theme="error" />
+                                <BaseText
+                                    key={validateErrorsTranslate[error]}
+                                    text={error}
+                                    theme="error"
+                                    dataTestId="EditableProfileCard.Error"
+                                />
                             ))
                 }
                 <ProfileCard

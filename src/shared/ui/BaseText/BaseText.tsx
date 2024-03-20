@@ -15,6 +15,7 @@ interface BaseTextProps {
     theme?: TextTheme;
     align?: TextAlign;
     size?: TextSize;
+    dataTestId?: string;
 }
 
 type HeaderTagType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
@@ -33,6 +34,7 @@ export const BaseText = memo((props: BaseTextProps) => {
         theme = 'default',
         align = 'left',
         size = 's',
+        dataTestId = 'Text',
     } = props;
 
     const mods: Mods = {
@@ -48,11 +50,17 @@ export const BaseText = memo((props: BaseTextProps) => {
         <div className={classNames('', mods, [className])}>
             {title
               && (
-                  <HeaderType className={classNames(classes.title, {}, [className])}>
+                  <HeaderType
+                      className={classNames(classes.title, {}, [className])}
+                      data-testid={`${dataTestId}.Header`}
+                  >
                       {title}
                   </HeaderType>
               )}
-            <p className={classNames(classes.text, {}, [className])}>
+            <p
+                className={classNames(classes.text, {}, [className])}
+                data-testid={`${dataTestId}.Text`}
+            >
                 {text}
             </p>
         </div>
