@@ -1,6 +1,9 @@
 {
+  "": "",
   "404": "",
   "ALL": "",
+  "Admin Page": "",
+  "Admin Panel": "",
   "Check it out": "",
   "Choose a value": "",
   "Choose an option": "",
@@ -30,7 +33,9 @@
   "Sort": "",
   "Sort by": "",
   "Text a comment": "Text a comment",
+  "You dont have a access to this page": "",
   "about": "About",
+  "adminPanel": "adminPanel",
   "ascending": "",
   "avatar": "",
   "back": "",
@@ -68,6 +73,7 @@
   "title": "",
   "view": "",
   "Выберите значение": "",
+  "Профиль": "",
   "Читать далее": {
     "": {
       "": {

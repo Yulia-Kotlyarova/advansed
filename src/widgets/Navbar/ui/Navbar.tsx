@@ -1,10 +1,12 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { BaseButton } from 'shared/ui/BaseButton/BaseButton';
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { LoginModal } from 'features/AuthByUserName';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUserAuthData, userActions } from 'entities/User/model';
+import {
+    getUserAuthData, isUserAdmin, isUserManager, userActions,
+} from 'entities/User/model';
 import { BaseLink, BaseLinkTheme } from 'shared/ui/BaseLink/BaseLink';
 import { RoutePath } from 'app/providers/router/routeConfig/routeConfig';
 import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
@@ -20,7 +22,11 @@ export const Navbar = ({ className }: NavbarProps) => {
     const { t } = useTranslation('translation');
     const dispatch = useDispatch();
     const authData = useSelector(getUserAuthData);
+    const isAdmin = useSelector(isUserAdmin);
+    const isManager = useSelector(isUserManager);
     const [isAuthModal, setIsAuthModal] = useState(false);
+
+    const isAdminPanel = useMemo(() => isAdmin || isManager, [isManager, isAdmin]);
 
     const onLogOut = () => {
         dispatch(userActions.toLogOut());
@@ -39,14 +45,21 @@ export const Navbar = ({ className }: NavbarProps) => {
                 </div>
                 <Dropdown
                     items={[
+                        ...(
+                            isAdminPanel
+                                ? [{
+                                    content: t('Admin Panel'),
+                                    href: RoutePath.admin_panel,
+                                }]
+                                : []
+                        ),
                         {
                             content: t('Profile'),
-                            onClick: () => onLogOut(),
                             href: RoutePath.profile + authData.id,
                         },
                         {
                             content: t('LogOut'),
-                            onClick: () => onLogOut(),
+                            onClick: onLogOut,
                         },
                     ]}
                     trigger={<Avatar alt="" size="sm" avatar={authData.avatar} />}

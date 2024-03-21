@@ -1,11 +1,35 @@
 import { useSelector } from 'react-redux';
 import { Navigate, useLocation } from 'react-router-dom';
-import { getUserAuthData } from 'entities/User/model';
+import { getUserAuthData, getUserRoles, UserRole } from 'entities/User/model';
+import { useMemo } from 'react';
 import { RoutePath } from '../routeConfig/routeConfig';
 
-export function RequireAuth({ children }: { children: JSX.Element }) {
+interface RequireAuthProps {
+    children: JSX.Element;
+    roles?: UserRole[];
+}
+
+export function RequireAuth({ children, roles }: RequireAuthProps) {
     const auth = useSelector(getUserAuthData);
     const location = useLocation();
+    const userRoles = useSelector(getUserRoles);
+    const data = useSelector(getUserAuthData);
+
+    const hasAccess = useMemo(() => {
+        if (!roles) {
+            return true;
+        }
+
+        return roles.some((role) => {
+            return userRoles?.includes(role);
+        });
+    }, [roles, userRoles]);
+
+    console.log('hasAccess', hasAccess, roles, userRoles, data);
+
+    if (!hasAccess) {
+        return <Navigate to={RoutePath.forbidden} state={{ from: location }} replace />;
+    }
 
     if (!auth) {
         // Redirect them to the /login page, but save the current location they were
