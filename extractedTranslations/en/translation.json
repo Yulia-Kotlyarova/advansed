@@ -1,5 +1,7 @@
 {
   "404": "",
+  "Admin Page": "Admin Page",
+  "Admin Panel": "Admin Panel",
   "Input Name": "Input Name",
   "Input Password": "Input Password",
   "LogIn": "LogIn",
@@ -10,6 +12,7 @@
   "Send": "Send",
   "Text a comment": "Text a comment",
   "about": "",
+  "adminPanel": "adminPanel",
   "copy": "",
   "create new article": "create new article",
   "error": "",
@@ -21,8 +24,5 @@
   "Введите пароль": "",
   "Войти": "",
   "Вы ввели неверный логин или пароль": "",
-  "Форма авторизации": "",
-  "Admin Panel": "Admin Panel",
-  "adminPanel": "adminPanel",
-  "Admin Page": "Admin Page"
+  "Форма авторизации": ""
 }
