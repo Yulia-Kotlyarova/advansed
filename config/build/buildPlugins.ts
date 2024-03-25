@@ -28,14 +28,14 @@ export function buildPlugins({
                 { from: paths.locales, to: paths.localesBuild },
             ],
         }),
-        new CircularDependencyPlugin({
-            exclude: /node_modules/,
-            failOnError: true,
-        }),
     ];
 
     if (isDev) {
         plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false }));
+        plugins.push(new CircularDependencyPlugin({
+            exclude: /node_modules/,
+            failOnError: true,
+        }));
     }
 
     return plugins;
