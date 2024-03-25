@@ -3,6 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import ArticleListPage from './ArticleListPage';
 
 export default {
@@ -16,9 +17,10 @@ export default {
 const Template: ComponentStory<typeof ArticleListPage> = (args) => <ArticleListPage {...args} />;
 
 export const Primary = Template.bind({});
+Primary.decorators = [StoreDecorator({})];
 Primary.args = {};
 
 export const PrimaryLight = Template.bind({});
 PrimaryLight.args = {};
 
-PrimaryLight.decorators = [ThemeDecorator(Theme.LIGHT)];
+PrimaryLight.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({})];

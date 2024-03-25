@@ -1,9 +1,9 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { memo, useCallback } from 'react';
+import { memo } from 'react';
 import { BaseText } from 'shared/ui/BaseText/BaseText';
 import { useTranslation } from 'react-i18next';
 import {
-    AutoSizer, List, ListRowProps, WindowScroller,
+    List, ListRowProps, WindowScroller,
 } from 'react-virtualized';
 import { PAGE_ID } from 'shared/ui/Page/Page';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
@@ -32,7 +32,7 @@ const getSkeletons = (view: ArticleView) => (
 
 export const ArticleList = memo(({
     className,
-    articles,
+    articles = [],
     view = ArticleView.SMALL,
     isLoading,
     virtualized = true,

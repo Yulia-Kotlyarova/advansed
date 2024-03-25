@@ -7,7 +7,7 @@ import { Theme } from 'app/providers/ThemeProvider';
 import { ArticlePageHeader } from './ArticlePageHeader';
 
 export default {
-    title: 'page/ArticlePage/ui/ArticlePageHeader',
+    title: 'pages/ArticlePage/ui/ArticlePageHeader',
     component: ArticlePageHeader,
     argTypes: {
         backgroundColor: { control: 'color' },
@@ -18,7 +18,7 @@ export default {
 const Template: ComponentStory<typeof ArticlePageHeader> = () => <ArticlePageHeader />;
 
 export const Primary = Template.bind({});
-Primary.decorators = [ThemeDecorator(Theme.DARK)];
+Primary.decorators = [StoreDecorator({})];
 
 export const PrimaryLight = Template.bind({});
-PrimaryLight.decorators = [ThemeDecorator(Theme.LIGHT)];
+PrimaryLight.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({})];

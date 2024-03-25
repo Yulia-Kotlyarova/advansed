@@ -3,6 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ArticleTypesTabs } from './ArticleTypesTabs';
 
 export default {
@@ -17,8 +18,9 @@ const Template: ComponentStory<typeof ArticleTypesTabs> = (args) => <ArticleType
 
 export const Primary = Template.bind({});
 Primary.args = {};
+Primary.decorators = [StoreDecorator({})];
 
 export const PrimaryLight = Template.bind({});
 PrimaryLight.args = {};
 
-PrimaryLight.decorators = [ThemeDecorator(Theme.LIGHT)];
+PrimaryLight.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({})];
