@@ -9,8 +9,8 @@ import { Currency } from 'entities/Currency';
 import { ProfileCard } from 'entities/Profile';
 import { DynamicModalLoader, ReducersList } from 'shared/lib/components/DynamicModalLoader/DynamicModalLoader';
 import { VStack } from 'shared/ui/Stack';
+import { ValidateProfileError } from '../../model/consts/consts';
 import { ProfilePageHeader } from '../ProfilePageHeader/ProfilePageHeader';
-import { ValidateProfileError } from '../../model/types/EditableProfileCardSchema';
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
 import {
