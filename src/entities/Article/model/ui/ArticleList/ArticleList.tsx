@@ -7,9 +7,9 @@ import {
 } from 'react-virtualized';
 import { PAGE_ID } from 'shared/ui/Page/Page';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
-import { ArticleView } from '../../types/article';
-import { Article, ArticleListItem } from '../../..';
+import { ArticleView, Article } from '../../types/article';
 import classes from './ArticleList.module.scss';
+import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 
 interface ArticleListProps {
   className?: string;

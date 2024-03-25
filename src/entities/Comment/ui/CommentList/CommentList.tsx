@@ -3,7 +3,7 @@ import { BaseText } from 'shared/ui/BaseText/BaseText';
 import { useTranslation } from 'react-i18next';
 import { VStack } from 'shared/ui/Stack';
 import { Comment } from '../../model/types/comment';
-import { CommentCard } from '../..';
+import { CommentCard } from '../CommentCard/CommentCard';
 
 interface CommentListProps {
   comments?: Comment[];
